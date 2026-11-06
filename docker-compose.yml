@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  aradgpt:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aradgpt_pro_app
+    restart: always
+    ports:
+      - "8501:8501"
+    environment:
+      - ACTIVE_PROVIDER=openrouter
+      - AI_API_KEY=${AI_API_KEY:-}
+      - AI_BASE_URL=${AI_BASE_URL:-https://openrouter.ai/api/v1}
+      - USD_TO_TOMAN=${USD_TO_TOMAN:-85000}
+      - WELCOME_BONUS=${WELCOME_BONUS:-20000}
+    volumes:
+      - ./data:/app/data
+      - ./assets:/app/assets
+      - ./fonts:/app/fonts
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/api/providers"]
+      interval: 30s
+      timeout: 10s
+      retries: 3

@@ -1,0 +1,1096 @@
+
+Favicon for dots-studio
+Dots Studio: Dots3-Note Preview (free)
+
+Going away December 31, 2026
+772B tokens
+
+Dots3-Note Preview is an open-weight mixture-of-experts model from Dots Studio, with 16B active parameters out of 280B total. It is the lightest model in the Dots 3 family and is suited for reasoning, coding, multimodal understanding, long-context processing, and multi-step agent workflows.
+
+by dots-studio
+Aug 14, 2026
+512K context
+$0/M input tokens
+$0/M output tokens
+Favicon for liquid
+LiquidAI: LFM2.5-2.6B (free)
+
+9.2B tokens
+
+LFM2.5-2.6B is a compact reasoning model from Liquid AI. It is suited for agent workflows, data extraction, RAG, and long-context processing. Liquid advises against using it for agentic coding or knowledge-heavy tasks.  Prompts and outputs may be retained and used to train Liquid models.
+
+by liquid
+Aug 11, 2026
+66K context
+$0/M input tokens
+$0/M output tokens
+Favicon for nvidia
+NVIDIA: Nemotron 3.5 Lightning (free)
+
+1.14T tokens
+
+Programming (#45)
+NVIDIA Nemotron 3.5 Lightning is an open mixture-of-experts model from NVIDIA, with 3B active parameters out of 30B total. It is suited for high-throughput agentic workloads and specialized tasks that benefit from domain-specific customization.
+
+by nvidia
+Aug 11, 2026
+1M context
+$0/M input tokens
+$0/M output tokens
+Favicon for fish-audio
+Fish Audio: S2.1 Pro Free (free)
+
+13M tokens
+
+S2.1 Pro Free is the no-cost variant of Fish Audio S2.1 Pro, intended for testing, prototyping, and low-volume applications. It provides the same synthesis capabilities without production latency or availability guarantees.
+
+by fish-audio
+Jul 29, 2026
+$0/M input tokens
+$0/M output tokens
+Favicon for nvidia
+NVIDIA: Nemotron 3 Embed 1B (free)
+
+768M tokens
+
+NVIDIA Nemotron 3 Embed 1B is an open text embedding model from NVIDIA, optimized for high-throughput, low-latency retrieval. It is suited for enterprise search, RAG, code retrieval, and agentic retrieval workflows, retaining more than 95% of the 8B model’s accuracy in a smaller deployment footprint.
+
+by nvidia
+Jul 16, 2026
+$0/M input tokens
+$0/M output tokens
+Favicon for cohere
+Cohere: North Mini Code (free)
+
+229B tokens
+
+North Mini Code is Cohere's first agentic coding model and the debut of its North family. A sparse mixture-of-experts model with 30B total parameters and 3B active, it is optimized for code generation, agentic software engineering, and terminal tasks, and is trained to generalize across agent harnesses such as OpenCode and SWE-Agent.  It offers a 256K-token context window with up to 64K tokens of output, supports interleaved reasoning and tool use via JSON schema, and is released open-weight under the Apache 2.0 license. Its small active-parameter footprint enables low-latency inference, including on local hardware.
+
+by cohere
+Jun 17, 2026
+256K context
+$0/M input tokens
+$0/M output tokens
+Favicon for nvidia
+NVIDIA: Llama Nemotron Rerank VL 1B V2 (free)
+
+1.7B tokens
+
+Llama Nemotron Rerank VL 1B V2 is a 1.7B multimodal reranking model from NVIDIA. It evaluates the relevance of document images and text against user queries, designed for vision RAG pipelines handling charts, tables, infographics, and mixed-media documents. Functions as a cross-encoder that accepts text queries paired with image, text, or combined document inputs, delivering approximately 6-7% recall improvements over embedding-only baselines on visual document retrieval benchmarks.
+
+by nvidia
+Jun 9, 2026
+$0/M input tokens
+$0/M output tokens
+Favicon for nvidia
+NVIDIA: Nemotron 3.5 Content Safety (free)
+
+1.94B tokens
+
+NVIDIA Nemotron 3.5 Content Safety is a compact 4B-parameter multimodal guardrail model from NVIDIA, fine-tuned from Google Gemma-3-4B. It moderates both inputs to and responses from LLMs and VLMs, accepting text and image input and returning text output: a safe/unsafe classification for the user prompt and the response, safety category labels, and an optional reasoning trace. It covers 12 languages with a context window of up to 128K tokens.  It is suited for prompt and response moderation, content classification, safety pipelines, and enterprise AI guardrails with policy enforcement, and includes a togglable reasoning mode. It is part of the NVIDIA Nemotron family of open models for agentic AI.
+
+by nvidia
+Jun 4, 2026
+128K context
+$0/M input tokens
+$0/M output tokens
+Favicon for nvidia
+NVIDIA: Nemotron 3 Ultra (free)
+
+3.01T tokens
+
+Academia (#45)
+Programming (#31)
+Technology (#48)
+NVIDIA Nemotron 3 Ultra is an open frontier-reasoning and orchestration model from NVIDIA, with 55B active parameters out of 550B total (MoE). Built on a hybrid Transformer-Mamba mixture-of-experts architecture, it supports text input and output with a context window of up to 1M tokens. It is suited for long-running agentic workflows, including agent orchestration, coding agents, deep research, and complex enterprise tasks.  It is particularly strong at multi-step reasoning and planning, with high-throughput inference designed for high-volume agent pipelines. It is part of the NVIDIA Nemotron family of open models for agentic AI.
+
+by nvidia
+Jun 4, 2026
+1M context
+$0/M input tokens
+$0/M output tokens
+Favicon for nvidia
+NVIDIA: Nemotron 3 Nano Omni (free)
+
+130B tokens
+
+NVIDIA Nemotron™ 3 Nano Omni is a 30B-A3B open multimodal model designed to function as a perception and context sub-agent in enterprise agent systems. It accepts text, image, video, and audio inputs and produces text output, enabling agents to perceive and reason across modalities in a single inference loop.  Built on a hybrid MoE Transformer-Mamba architecture with Conv3D video layers and Efficient Video Sampling (EVS), it delivers approximately 2× higher throughput and 2.5× lower compute for video reasoning versus separate vision + speech pipelines. It supports up to 300K context length and a 16,384 reasoning budget, with extended thinking enabled via reasoning.enabled on OpenRouter.
+
+by nvidia
+Apr 28, 2026
+256K context
+$0/M input tokens
+$0/M output tokens
+Favicon for google
+Google: Gemma 4 26B A4B (free)
+
+1.08B tokens
+
+Gemma 4 26B A4B IT is an instruction-tuned Mixture-of-Experts (MoE) model from Google DeepMind. Despite 25.2B total parameters, only 3.8B activate per token during inference — delivering near-31B quality at a fraction of the compute cost. Supports multimodal input including text, images, and video (up to 60s at 1fps). Features a 256K token context window, native function calling, configurable thinking/reasoning mode, and structured output support. Released under Apache 2.0.
+
+by google
+Apr 3, 2026
+262K context
+$0/M input tokens
+$0/M output tokens
+Favicon for google
+Google: Gemma 4 31B (free)
+
+544M tokens
+
+Gemma 4 31B Instruct is Google DeepMind's 30.7B dense multimodal model supporting text and image input with text output. Features a 256K token context window, configurable thinking/reasoning mode, native function calling, and multilingual support across 140+ languages. Strong on coding, reasoning, and document understanding tasks. Apache 2.0 license.
+
+by google
+Apr 2, 2026
+262K context
+$0/M input tokens
+$0/M output tokens
+Favicon for nvidia
+NVIDIA: Llama Nemotron Embed VL 1B V2 (free)
+
+369M tokens
+
+The Llama Nemotron Embed VL 1B V2 embedding model is optimized for multimodal question-answering retrieval. The model can embed 'documents' in the form of image, text, or image and text combined. Documents can be retrieved given a user query in text form. The model supports images containing text, tables, charts, and infographics.
+
+by nvidia
+Feb 25, 2026
+$0/M input tokens
+$0/M output tokens
+
+
+
+Favicon for google
+Google: Nano Banana 2 (Gemini 3.1 Flash Image Preview)
+
+644M tokens
+
+Gemini 3.1 Flash Image Preview, a.k.a. "Nano Banana 2," is Google’s latest state of the art image generation and editing model, delivering Pro-level visual quality at Flash speed. It combines advanced contextual understanding with fast, cost-efficient inference, making complex image generation and iterative edits significantly more accessible. Aspect ratios can be controlled with the image_config API Parameter
+
+by google
+Feb 26, 2026
+66K context
+$0.50/M input tokens
+$60/M output tokens
+Favicon for sourceful
+Sourceful: Riverflow V2 Pro
+
+1.98M tokens
+
+Riverflow V2 Pro is the most powerful variant of Sourceful's Riverflow 2.0 lineup, best for top-tier control and perfect text rendering.  The Riverflow 2.0 series represents SOTA performance on image generation and editing tasks, using an integrated reasoning model to boost reliability and tackle complex challenges.  Pricing is $0.15 per 1K/2K output image and $0.33 per 4K output image.  Additional features: - Custom font rendering via font_inputs ($0.03/font, max 2) - Image enhancement via super_resolution_references ($0.20/reference, max 4)  See the image generation docs for details: https://openrouter.ai/docs/features/multimodal/image-generation  Note: Sourceful imposes a 4.5MB request size limit, therefore it is highly recommended to pass image URLs instead of Base64 data.
+
+by sourceful
+Feb 2, 2026
+from $0.15/image
+Favicon for sourceful
+Sourceful: Riverflow V2 Fast
+
+9.19M tokens
+
+Riverflow V2 Fast is the fastest variant of Sourceful's Riverflow 2.0 lineup, best for production deployments and latency-critical workflows.  The Riverflow 2.0 series represents SOTA performance on image generation and editing tasks, using an integrated reasoning model to boost reliability and tackle complex challenges.  Pricing is $0.02 per 1K output image and $0.04 per 2K output image. Does not support 4K image output.  Additional features: - Custom font rendering via font_inputs ($0.03/font, max 2) - Image enhancement via super_resolution_references ($0.20/reference, max 4)  See the image generation docs for details: https://openrouter.ai/docs/features/multimodal/image-generation  Note: Sourceful imposes a 4.5MB request size limit, therefore it is highly recommended to pass image URLs instead of Base64 data.
+
+by sourceful
+Feb 2, 2026
+from $0.02/image
+Favicon for black-forest-labs
+Black Forest Labs: FLUX.2 Klein 4B
+
+664M tokens
+
+FLUX.2 [klein] 4B is the fastest and most cost-effective model in the FLUX.2 family, optimized for high-throughput use cases while maintaining excellent image quality.  Pricing is based on the output image. The first generated megapixel is charged $0.014. Each subsequent megapixel is charged $0.001.
+
+by black-forest-labs
+Jan 14, 2026
+$0.014/megapixel
+Favicon for bytedance-seed
+ByteDance Seed: Seedream 4.5
+
+1.02B tokens
+
+Seedream 4.5 is the latest in-house image generation model developed by ByteDance. Compared with Seedream 4.0, it delivers comprehensive improvements, especially in editing consistency, including better preservation of subject details, lighting, and color tone. It also enhances portrait refinement and small-text rendering. The model’s multi-image composition capabilities have been significantly strengthened, and both reasoning performance and visual aesthetics continue to advance, enabling more accurate and artistically expressive image generation.  Pricing is $0.04 per output image, regardless of size.
+
+by bytedance-seed
+Dec 23, 2025
+from $0.04/image
+Favicon for black-forest-labs
+Black Forest Labs: FLUX.2 Max
+
+36.6M tokens
+
+FLUX.2 [max] is the new top-tier image model from Black Forest Labs, pushing image quality, prompt understanding, and editing consistency to the highest level yet.  Pricing is as follows, per the docs: Input: We charge $0.03 for each megapixel on the input (i.e. reference images for editing) Output: The first generated megapixel is charged $0.07. Each subsequent megapixel is charged $0.03.
+
+by black-forest-labs
+Dec 16, 2025
+$0.07/megapixel
+Favicon for black-forest-labs
+Black Forest Labs: FLUX.2 Flex
+
+22M tokens
+
+FLUX.2 [flex] excels at rendering complex text, typography, and fine details, and supports multi-reference editing in the same unified architecture.  Pricing is as follows, per the docs: We charge $0.06 for each megapixel on both input and output side.
+
+by black-forest-labs
+Nov 25, 2025
+from $0.06/megapixel
+Favicon for black-forest-labs
+Black Forest Labs: FLUX.2 Pro
+
+392M tokens
+
+A high-end image generation and editing model focused on frontier-level visual quality and reliability. It delivers strong prompt adherence, stable lighting, sharp textures, and consistent character/style reproduction across multi-reference inputs. Designed for production workloads, it balances speed and quality while supporting text-to-image and image editing up to 4 MP resolution.  Pricing is as follows, per the docs: Input: We charge $0.015 for each megapixel on the input (i.e. reference images for editing) Output: The first megapixel is charged $0.03 and then each subsequent MP will be charged $0.015.
+
+by black-forest-labs
+Nov 25, 2025
+$0.03/megapixel
+Favicon for google
+Google: Nano Banana Pro (Gemini 3 Pro Image Preview)
+
+811M tokens
+
+Nano Banana Pro is Google’s most advanced image-generation and editing model, built on Gemini 3 Pro. It extends the original Nano Banana with significantly improved multimodal reasoning, real-world grounding, and high-fidelity visual synthesis. The model generates context-rich graphics, from infographics and diagrams to cinematic composites, and can incorporate real-time information via Search grounding.  It offers industry-leading text rendering in images (including long passages and multilingual layouts), consistent multi-image blending, and accurate identity preservation across up to five subjects. Nano Banana Pro adds fine-grained creative controls such as localized edits, lighting and focus adjustments, camera transformations, and support for 2K/4K outputs and flexible aspect ratios. It is designed for professional-grade design, product visualization, storyboarding, and complex multi-element compositions while remaining efficient for general image creation workflows.
+
+by google
+Nov 20, 2025
+66K context
+$2/M input tokens
+$120/M output tokens
+Favicon for openai
+OpenAI: GPT-5 Image Mini
+
+Going away December 1, 2026
+348M tokens
+
+GPT-5 Image Mini combines OpenAI's advanced language capabilities, powered by GPT-5 Mini, with GPT Image 1 Mini for efficient image generation. This natively multimodal model features superior instruction following, text rendering, and detailed image editing with reduced latency and cost. It excels at high-quality visual creation while maintaining strong text understanding, making it ideal for applications that require both efficient image generation and text processing at scale.
+
+by openai
+Oct 16, 2025
+400K context
+$2.50/M input tokens
+$8/M output tokens
+Favicon for openai
+OpenAI: GPT-5 Image
+
+11.9M tokens
+
+GPT-5 Image combines OpenAI's GPT-5 model with state-of-the-art image generation capabilities. It offers major improvements in reasoning, code quality, and user experience while incorporating GPT Image 1's superior instruction following, text rendering, and detailed image editing.
+
+by openai
+Oct 14, 2025
+400K context
+$10/M input tokens
+$40/M output tokens
+Favicon for google
+Google: Nano Banana (Gemini 2.5 Flash Image)
+
+1.46B tokens
+
+Gemini 2.5 Flash Image, a.k.a. "Nano Banana," is now generally available. It is a state of the art image generation model with contextual understanding. It is capable of image generation, edits, and multi-turn conversations. Aspect ratios can be controlled with the image_config API Parameter
+
+by google
+Oct 7, 2025
+33K context
+$0.30/M input tokens
+$30/M output tokens
+
+Favicon for kwaivgi
+Kling: Video v3.0 Pro
+
+24 hours
+
+Kling v3.0 Pro is Kuaishou's premium video generation model, offering higher visual quality than the Standard tier. It supports text-to-video and image-to-video workflows, with first-frame and last-frame control for precise scene composition. Clips range from 3 to 15 seconds in 16:9, 9:16, or 1:1 aspect ratios. Native audio generation is available as an option.
+
+by kwaivgi
+Apr 29, 2026
+from $0.168/second
+Favicon for kwaivgi
+Kling: Video v3.0 Standard
+
+20 hours
+
+Kling v3.0 Standard is a video generation model from Kuaishou. It supports text-to-video and image-to-video workflows, with first-frame and last-frame control for guided scene composition. Clips range from 3 to 15 seconds in 16:9, 9:16, or 1:1 aspect ratios. Native audio generation is available as an option.
+
+by kwaivgi
+Apr 29, 2026
+from $0.126/second
+Favicon for google
+Google: Veo 3.1 Fast
+
+52 hours
+
+Google's mid-tier video generation model balancing speed and quality. Veo 3.1 Fast generates high-quality video from text or image prompts with native synchronized audio, offering faster turnaround than Veo 3.1 at lower cost. Supports first-frame and last-frame conditioning, multiple resolutions and aspect ratios, and SynthID watermarking.
+
+by google
+Apr 24, 2026
+from $0.10/second
+Favicon for google
+Google: Veo 3.1 Lite
+
+80 hours
+
+Google's most cost-effective video generation model, designed for high-volume applications and rapid iteration. Veo 3.1 Lite generates 720p and 1080p video from text or image prompts with native synchronized audio at less than 50% of the cost of Veo 3.1 Fast. Supports 4–8 second clips in landscape (16:9) and portrait (9:16) formats, with SynthID watermarking. Ideal for content platforms, short-form video creation, and automated media generation.
+
+by google
+Apr 23, 2026
+from $0.05/second
+Favicon for kwaivgi
+Kling: Video O1
+
+2 hours
+
+Kling Video O1 is a video generation model from Kuaishou. It supports text and image inputs with video output, enabling text-to-video and image-to-video workflows. It is suited for cinematic content production, with first-frame and last-frame control for precise scene composition. It generates 5 or 10 second clips in 16:9, 9:16, or 1:1 aspect ratios.
+
+by kwaivgi
+Apr 20, 2026
+$0.112/second
+Favicon for minimax
+MiniMax: Hailuo 2.3
+
+<1 hour
+
+Hailuo 2.3 is a video generation model from MiniMax. It accepts text prompts and reference images as input and generates video output, supporting both text-to-video and image-to-video workflows. It is suited for creative content production, cinematic scene generation, and character animation, with a focus on realistic motion and expressive character rendering.
+
+by minimax
+Apr 20, 2026
+$0.0817/second
+Favicon for alibaba
+Alibaba: Wan 2.7
+
+7 hours
+
+Wan 2.7 is a video generation model from Alibaba. It supports text-to-video, image-to-video with first and last frame control, and reference-to-video, where multiple reference images guide the style and content of the generated scene.
+
+by alibaba
+Apr 15, 2026
+$0.10/second
+Favicon for bytedance
+ByteDance: Seedance 2.0 Fast
+
+56 hours
+
+Seedance 2.0 Fast is a video generation model from ByteDance. It supports text-to-video, image-to-video with first and last frame control, and multimodal reference-to-video. It prioritizes generation speed and lower cost over maximum output quality. The number of tokens is given by (height of output video * width of output video * duration * 24) / 1024
+
+by bytedance
+Apr 15, 2026
+from $0.04035/second
+Favicon for bytedance
+ByteDance: Seedance 2.0
+
+44 hours
+
+Seedance 2.0 is a video generation model from ByteDance. It supports text-to-video, image-to-video with first and last frame control, and multimodal reference-to-video. It is particularly strong at preserving character consistency, visual style, and camera movement from reference material. The number of tokens is given by (height of output video * width of output video * duration * 24) / 1024
+
+by bytedance
+Apr 15, 2026
+from $0.06726/second
+Favicon for alibaba
+Alibaba: Wan 2.6
+
+2 hours
+
+Alibaba's most advanced video generation model, supporting over 10 visual creation capabilities in a unified system. Wan 2.6 generates 1080p video at 24fps from text, images, reference videos, or audio, with native audio-visual synchronization and precise lip-sync. Key features include reference-to-video (insert a character's appearance and voice into new scenes), multi-shot storytelling from simple prompts, synchronized sound effects and music, and support for 16:9, 9:16, and 1:1 aspect ratios with clips up to 15 seconds.
+
+by alibaba
+Mar 28, 2026
+from $0.04/second
+Favicon for bytedance
+ByteDance: Seedance 1.5 Pro
+
+Going away November 11, 2026
+21 hours
+
+ByteDance's next-generation audio-visual generation model with a 4.5B parameter Dual-Branch Diffusion Transformer architecture. Seedance 1.5 Pro generates video and audio simultaneously in a single unified pass — eliminating the timing issues of sequential audio dubbing. Supports multi-language lip-sync (English, Mandarin, Japanese, Korean, Spanish, and more), cinematic camera control (pan, tilt, zoom, orbit), multi-character dialogue, and character consistency across shots. Produces clips from 4–12 seconds at up to 1080p. The number of tokens is given by (height of output video * width of output video * duration * 24) / 1024
+
+by bytedance
+Mar 23, 2026
+from $0.02306/second
+Favicon for google
+Google: Veo 3.1
+
+20 hours
+
+Google's state-of-the-art video generation model, built for maximum visual fidelity in final production cuts. Veo 3.1 generates high-quality 1080p video from text or image prompts with native synchronized audio — including dialogue, ambient effects, and background sound. Supports scene extension (up to 20 chained clips for 140+ second narratives), frames-to-video transitions between two images, vertical video for Shorts, and 4K upscaling.
+
+by google
+Mar 23, 2026
+from $0.40/second
+
+Favicon for qwen
+Qwen: Qwen-Audio-3.0-TTS Flash
+
+1.78M tokens
+
+Qwen-Audio-3.0-TTS Flash is Alibaba's fast, cost-efficient text-to-speech model, generating spoken audio from text via the DashScope Speech Synthesizer API.
+
+by qwen
+Jul 23, 2026
+$15/M characters
+Favicon for qwen
+Qwen: Qwen-Audio-3.0-TTS Plus
+
+1.32M tokens
+
+Qwen-Audio-3.0-TTS Plus is Alibaba's higher-quality text-to-speech model, generating spoken audio from text via the DashScope Speech Synthesizer API.
+
+by qwen
+Jul 23, 2026
+$20/M characters
+Favicon for deepgram
+Deepgram: Aura-2
+
+830K tokens
+
+Aura-2 is a multilingual text-to-speech model from Deepgram. It supports Deepgram’s canonical Aura-2 voice catalog for speech synthesis across multiple languages.
+
+by deepgram
+Jul 16, 2026
+$30/M characters
+Favicon for minimax
+MiniMax: Speech 2.8 HD
+
+687K tokens
+
+MiniMax Speech 2.8 HD is a text-to-speech model from MiniMax. It is suited for applications that generate spoken audio from text and accepts arbitrary MiniMax voice IDs.
+
+by minimax
+Jul 16, 2026
+$100/M characters
+Favicon for minimax
+MiniMax: Speech 2.8 Turbo
+
+741K tokens
+
+MiniMax Speech 2.8 Turbo is a text-to-speech model from MiniMax. It is suited for applications that generate spoken audio from text and accepts arbitrary MiniMax voice IDs.
+
+by minimax
+Jul 16, 2026
+$60/M characters
+Favicon for microsoft
+Microsoft AI: MAI-Voice-2
+
+Going away December 31, 2026
+3.88M tokens
+
+MAI-Voice-2 is an expressive text-to-speech model from Microsoft AI. It is suited for conversational assistants, media narration, accessibility, education, and other long-form voice applications. It supports 15 languages across 18 locales, fine-grained control of tone and delivery, multi-speaker generation, and voice prompting from short audio clips without fine-tuning. The model prioritizes naturalness and expressivity over latency-critical generation.
+
+by microsoft
+Jun 2, 2026
+$22/M characters
+Favicon for x-ai
+SpaceXAI: Grok Voice TTS 1.0
+
+19.2M tokens
+
+Grok Voice TTS 1.0 is a text-to-speech model from SpaceXAI. It converts text into spoken audio across 20+ languages with automatic language detection, and offers five built-in voices (Eve, Ara, Rex, Sal, Leo) covering a range of tones. Inline speech tags allow control over pauses, emphasis, pitch, speed, and vocal style. Output is available in MP3, WAV, PCM, μ-law, and A-law formats at sample rates from 8 kHz to 48 kHz, with up to 15,000 characters per request.
+
+by x-ai
+May 15, 2026
+$15/M characters
+Favicon for google
+Google: Gemini 3.1 Flash TTS Preview
+
+208M tokens
+
+Gemini 3.1 Flash TTS Preview is a text-to-speech model from Google, and a substantial generational step up from Gemini 2.5 Flash TTS. It takes text input and produces audio output across 70+ languages — nearly 3× the language coverage of its predecessor.  The headline addition is a system of 200+ inline audio tags (e.g. [whispers], [laughs], [excited]) that let developers steer delivery, emotion, and pacing mid-sentence, alongside a "director's chair" workflow in Google AI Studio for defining per-character Audio Profiles and scene-level context. It supports up to two speakers with independent voice and style configuration per speaker, outputs PCM audio at 24 kHz / 16-bit mono, and automatically watermarks all output with SynthID. Context window is 32k tokens.
+
+by google
+Apr 24, 2026
+$1/M input tokens
+$20/M output tokens
+Favicon for sesame
+Sesame: CSM 1B
+
+15K tokens
+
+CSM 1B is a conversational speech model from Sesame. It accepts text input and produces English speech output, with voice options spanning conversational and read-speech styles. At 1B parameters, it is suited for dialogue-oriented applications such as voice assistants and interactive agents.
+
+by sesame
+Apr 23, 2026
+$7/M characters
+Favicon for canopylabs
+Canopy Labs: Orpheus 3B
+
+310K tokens
+
+Orpheus 3B is an English text-to-speech model from Canopy Labs, fine-tuned for natural prosody and expressive delivery. It offers 7 preset voices and is suited for narration, voice assistants, and interactive applications where naturalistic speech is a priority.
+
+by canopylabs
+Apr 23, 2026
+$7/M characters
+Favicon for hexgrad
+hexgrad: Kokoro 82M
+
+39.2M tokens
+
+Kokoro 82M is a lightweight, open-weight text-to-speech model from hexgrad. It converts text to speech across 8 languages (American and British English, Spanish, French, Hindi, Italian, Japanese, Portuguese, and Chinese) using 54 preset voices organized by language and gender. At 82M parameters, it is well-suited for multilingual TTS deployments where footprint and cost efficiency matter.
+
+by hexgrad
+Apr 23, 2026
+$0.62/M characters
+Favicon for mistralai
+Mistral: Voxtral Mini TTS
+
+713K tokens
+
+Voxtral Mini TTS is Mistral's text-to-speech model featuring zero-shot voice cloning and multilingual support. It converts text input into natural-sounding audio output.
+
+by mistralai
+Apr 19, 2026
+$16/M characters
+
+Favicon for openai
+OpenAI: GPT-6 Luna Decisions
+
+176B tokens
+
+Finance (#22)
+Health (#30)
+Legal (#30)
+Science (#32)
+Trivia (#14)
+GPT-6 Luna Decisions is GPT-6 Luna served through OpenAI's Decisions API. Instead of generating text, it reads the content passed as state (text, JSON, or images) and returns typed, probabilistic answers to named questions in a single request: the probability of yes for a yes/no question (noul), a probability for every option plus the most likely one (choice), or a probability for every level of an ordered rubric plus the expected score (score).  It is built for classification, routing, moderation, and rubric grading where application code thresholds the returned numbers rather than parsing a chat reply. A request can carry up to 200 questions about the same content.
+
+by openai
+Oct 6, 2026
+$0.10/M input tokens
+$0/M output tokens
+Favicon for liquid
+LiquidAI: d1
+
+Going away November 20, 2026
+76.2B tokens
+
+Health (#24)
+Trivia (#23)
+d1 is Liquid AI's structured decision model, served as a System One endpoint. Send a state along with typed questions, and it returns a choice, a score, or a yes/no answer, each with a probability taken directly from the model rather than written out as text. It uses the same /v1/systemone schema as other OpenRouter Decisions models, so it suits routing, classification, and policy checks that need a fast, scored answer instead of prose.
+
+by liquid
+Oct 1, 2026
+$0.02/M input tokens
+$0/M output tokens
+Favicon for cloudflare
+Cloudflare: Clef Flash
+
+34.8B tokens
+
+Legal (#35)
+Clef-flash is the fast 9B member of Cloudflare's open-source Clef decision model family, a fine-tune of Qwen3.5-9B served on Workers AI. It turns a state (text or structured JSON) plus a schema of typed questions into decisions, returning a calibrated probability for every allowed option of every question in a single forward pass instead of generating tokens. Use it for low-latency classification, routing, scoring, and guardrails through the Decisions API. Note: Workers AI currently truncates long text state to roughly the first 2K tokens, so content beyond that is not read; images are counted separately.
+
+by cloudflare
+Oct 1, 2026
+$0.018/M input tokens
+$0/M output tokens
+Favicon for cloudflare
+Cloudflare: Clef
+20% off
+
+11.5B tokens
+
+Clef is Cloudflare's open-source 27B multimodal decision model, a fine-tune of Qwen3.8-27B served on Workers AI. It turns a state (text or structured JSON) plus a schema of typed questions into decisions, returning a calibrated probability for every allowed option of every question in a single forward pass instead of generating tokens. Use it for classification, routing, scoring, guardrails, and agentic control flow through the Decisions API. Note: Workers AI currently truncates long text state to roughly the first 2K tokens, so content beyond that is not read; images are counted separately.
+
+by cloudflare
+Oct 1, 2026
+$0.192/M input tokens
+$0/M output tokens
+Favicon for togethercomputer
+Together: Tev1 4B Experimental
+
+1.08B tokens
+
+Tev1 4B Experimental is an experimental decision model from Together AI, a supervised fine-tune of Qwen3.5-4B trained to choose one option from a structured state, question, and list of 2-24 labeled options. It keeps Qwen's standard next-token head, so it is served through the regular chat completions API rather than a dedicated decisions runtime.  Send a system instruction followed by a JSON decision containing state, question, and options. The model returns a single option letter, which application code maps back to the option key. Recommended settings are temperature: 0, max_tokens: 8, and thinking disabled. It is intended for routing, classification, and policy checks, not generic chat. Together publishes the full data recipe and training code so teams can fine-tune their own variant.
+
+by togethercomputer
+Sep 30, 2026
+$0.042/M input tokens
+$0/M output tokens
+Favicon for inception
+Inception: Mercury Decide
+50% off
+
+Going away November 8, 2026
+35.5B tokens
+
+Legal (#16)
+Trivia (#15)
+Mercury Decide is Inception's structured decision model, served as a System One endpoint. Send a state along with typed questions, and it returns a choice, a score, or a yes/no answer, each with a calibrated probability taken directly from the model rather than written out as text, so output tokens are free. It makes up to 14 decisions per second and reports how certain it is, so a decision system can run it on every case and escalate the unsure ones to a human. Mercury Decide uses the same /v1/systemone schema as Jev.
+
+by inception
+Sep 30, 2026
+$0.02/M input tokens
+$0/M output tokens
+Favicon for upstage
+Upstage: Solar Decide
+50% off
+
+1.47B tokens
+
+Solar Decide is Upstage's structured decision model, served as a System One endpoint on Solar Mini 4. Send a state along with typed questions, and it returns a choice, a score, or a yes/no answer, each with a calibrated probability taken directly from the model rather than written out as text. Because it generates no prose, each decision takes a single forward pass and output tokens are free. With a 512K context window, an entire document can serve as the state. Solar Decide uses the same /v1/systemone schema as Jev, bringing Solar Mini 4's strong Korean understanding to routing, classification, and policy checks.
+
+by upstage
+Sep 28, 2026
+$0.05/M input tokens
+$0/M output tokens
+Favicon for respan
+Respan: Span-01
+
+155M tokens
+
+Span-01 is a behavior scoring model from Respan. It reads a conversation span and returns, for each plain-language behavior you define, the probability that the behavior is present. It is suited for evaluation, guardrails, and monitoring of LLM and agent outputs at scale.  It is the higher-accuracy tier of the family. Span-01 Lite is the free, lighter tier.
+
+by respan
+Sep 26, 2026
+$0.02/M input tokens
+$0/M output tokens
+Favicon for respan
+Respan: Span-01 Lite
+
+29.2B tokens
+
+Translation (#22)
+Span-01 Lite is the free, lighter tier of Span-01, a behavior scoring model from Respan. It returns, for each plain-language behavior you define, the probability that the behavior is present in a conversation span, and is suited for high-volume evaluation and monitoring where cost matters more than peak accuracy.
+
+by respan
+Sep 26, 2026
+$0/M input tokens
+$0/M output tokens
+Favicon for respan
+Respan: Span-01 Lite (free)
+
+5.5B tokens
+
+Span-01 Lite is the free, lighter tier of Span-01, a behavior scoring model from Respan. It returns, for each plain-language behavior you define, the probability that the behavior is present in a conversation span, and is suited for high-volume evaluation and monitoring where cost matters more than peak accuracy.
+
+by respan
+Sep 26, 2026
+$0/M input tokens
+$0/M output tokens
+Favicon for jaredpalmer
+Jared Palmer: Kev 4B
+
+2.96B tokens
+
+Kev 4B is a small open-weight decision model from Jared Palmer, built as a LoRA adapter and pointer head on Qwen3.5-4B-Base and served over the same /v1/systemone contract as TypeSafe's Jev. Send a state and typed questions (yes/no, multiple choice, or score) and it returns a calibrated probability per question in one forward pass, with no generated text. It is the recommended checkpoint in the Kev family (0.8B, 4B, 9B) and is suited for routing, classification, and policy checks that want a compact, Apache-2.0 alternative to Jev.  Code, model cards, and eval suites: https://github.com/jaredpalmer/kev
+
+by jaredpalmer
+Sep 25, 2026
+$0.042/M input tokens
+$0/M output tokens
+Favicon for typesafe
+TypeSafe: Jev 1.13
+
+3.13T tokens
+
+Academia (#9)
+Finance (#11)
+Health (#6)
+Legal (#7)
+Marketing (#8)
+
++7 categories
+Jev is a structured decision model from TypeSafe, and the first of its System One models. System One models make fast, structured decisions for software, returning a typed choice rather than free-form text. It is suited for routing, classification, and other decision points inside an application where a fast, predictable answer matters more than generated prose.  Learn more in TypeSafe's docs: https://docs.typesafe.ai/concepts/system-one
+
+by typesafe
+Sep 18, 2026
+$0.042/M input tokens
+$0/M output tokens
+
+Favicon for mistralai
+Mistral: Mistral Embed 2312
+
+8.35B tokens
+
+Mistral Embed is a specialized embedding model for text data, optimized for semantic search and RAG applications. Developed by Mistral AI in late 2023, it produces 1024-dimensional vectors that effectively capture semantic relationships in text.
+
+by mistralai
+Oct 31, 2025
+$0.10/M tokens
+Favicon for google
+Google: Gemini Embedding 001
+
+34.1B tokens
+
+gemini-embedding-001 provides a unified cutting edge experience across domains, including science, legal, finance, and coding. This embedding model has consistently held a top spot on the Massive Text Embedding Benchmark (MTEB) Multilingual leaderboard since the experimental launch in March.
+
+by google
+Oct 31, 2025
+$0.15/M tokens
+Favicon for openai
+OpenAI: Text Embedding Ada 002 (batch)
+
+text-embedding-ada-002 is OpenAI's legacy text embedding model.
+
+by openai
+Oct 30, 2025
+$0.05/M tokens
+Favicon for openai
+OpenAI: Text Embedding Ada 002
+
+1.62B tokens
+
+text-embedding-ada-002 is OpenAI's legacy text embedding model.
+
+by openai
+Oct 30, 2025
+$0.10/M tokens
+Favicon for mistralai
+Mistral: Codestral Embed 2505
+
+525M tokens
+
+Mistral Codestral Embed is specially designed for code, perfect for embedding code databases, repositories, and powering coding assistants with state-of-the-art retrieval.
+
+by mistralai
+Oct 30, 2025
+$0.15/M tokens
+Favicon for openai
+OpenAI: Text Embedding 3 Large (batch)
+
+139K tokens
+
+text-embedding-3-large is OpenAI's most capable embedding model for both english and non-english tasks. Embeddings are a numerical representation of text that can be used to measure the relatedness between two pieces of text. Embeddings are useful for search, clustering, recommendations, anomaly detection, and classification tasks.
+
+by openai
+Oct 30, 2025
+$0.065/M tokens
+Favicon for openai
+OpenAI: Text Embedding 3 Large
+
+26B tokens
+
+text-embedding-3-large is OpenAI's most capable embedding model for both english and non-english tasks. Embeddings are a numerical representation of text that can be used to measure the relatedness between two pieces of text. Embeddings are useful for search, clustering, recommendations, anomaly detection, and classification tasks.
+
+by openai
+Oct 30, 2025
+$0.13/M tokens
+Favicon for openai
+OpenAI: Text Embedding 3 Small (batch)
+
+text-embedding-3-small is OpenAI's improved, more performant version of the ada embedding model. Embeddings are a numerical representation of text that can be used to measure the relatedness between two pieces of text. Embeddings are useful for search, clustering, recommendations, anomaly detection, and classification tasks.
+
+by openai
+Oct 30, 2025
+$0.01/M tokens
+Favicon for openai
+OpenAI: Text Embedding 3 Small
+
+177B tokens
+
+Health (#21)
+Legal (#20)
+Marketing (#43)
+text-embedding-3-small is OpenAI's improved, more performant version of the ada embedding model. Embeddings are a numerical representation of text that can be used to measure the relatedness between two pieces of text. Embeddings are useful for search, clustering, recommendations, anomaly detection, and classification tasks.
+
+by openai
+Oct 30, 2025
+$0.02/M tokens
+Favicon for qwen
+Qwen: Qwen3 Embedding 8B
+
+240B tokens
+
+Finance (#36)
+Health (#43)
+Legal (#4)
+The Qwen3 Embedding model series is the latest proprietary model of the Qwen family, specifically designed for text embedding and ranking tasks. This series inherits the exceptional multilingual capabilities, long-text understanding, and reasoning skills of its foundational model. The Qwen3 Embedding series represents significant advancements in multiple text embedding and ranking tasks, including text retrieval, code retrieval, text classification, text clustering, and bitext mining.
+
+by qwen
+Oct 28, 2025
+$0.01/M tokens
+Favicon for qwen
+Qwen: Qwen3 Embedding 4B
+
+9.96B tokens
+
+The Qwen3 Embedding model series is the latest proprietary model of the Qwen family, specifically designed for text embedding and ranking tasks. This series inherits the exceptional multilingual capabilities, long-text understanding, and reasoning skills of its foundational model. The Qwen3 Embedding series represents significant advancements in multiple text embedding and ranking tasks, including text retrieval, code retrieval, text classification, text clustering, and bitext mining.
+
+by qwen
+Oct 28, 2025
+$0.02/M tokens
+
+Favicon for cohere
+Cohere: Rerank 5 Pro
+
+460M tokens
+
+Rerank 5 Pro is the higher-accuracy tier of Cohere's Rerank 5 family of reranking models. It scores and reorders candidate documents against a query and is suited for retrieval pipelines where ranking quality matters most: complex or reasoning-heavy queries, long or domain-specific documents, and RAG systems that feed a small number of passages to a generator.  Relevance scores are calibrated to a 0-1 range so a fixed threshold behaves consistently across queries. Rerank 5 Fast is the lower-latency sibling for high-volume search and agent loops.
+
+by cohere
+Nov 3, 2026
+$0.05/M tokens
+Favicon for nvidia
+NVIDIA: Nemotron 3.5 Rerank 8B (free)
+
+1.25B tokens
+
+by nvidia
+Oct 21, 2026
+$0/M input tokens
+$0/M output tokens
+Favicon for mongodb
+VoyageAI by MongoDB: rerank-3-lite
+
+17.8B tokens
+
+rerank-3-lite is a reranker optimized for both latency and quality and a drop-in upgrade to rerank-2.5-lite, improving on it by 0.94% NDCG@10 on average across domain evaluations and by 1.86% on long-document evaluations, with code retrieval gains of 2.77% atop voyage-3-large and 2.59% atop voyage-4-large. It matches the retrieval quality of rerank-2.5, and across 93 retrieval datasets it outperforms Cohere Rerank v4.0 Pro by 1.44% and Qwen3-Reranker-8B by 2.61%. The model supports a combined context length of 32K tokens per query-document pair, including up to 8K tokens for the query, enabling more accurate retrieval over longer documents. Additionally, rerank-3-lite supports instruction following, allowing users to guide relevance scoring t rerank-3-lite here: mongodb.com/products/platform/ai-search-and-retrieval/models
+
+by mongodb
+Sep 30, 2026
+$0.02/M tokens
+Favicon for mongodb
+VoyageAI by MongoDB: rerank-3
+
+10.8B tokens
+
+rerank-3 is a reranker optimized for quality and a drop-in upgrade to rerank-2.5, improving on it by 0.80% NDCG@10 on average across domain evaluations and by 3.35% on long-document evaluations, with code retrieval gains of 2.01% atop voyage-3-large and 1.96% atop voyage-4-large. Across 93 retrieval datasets it outperforms Cohere Rerank v4.0 Pro by 2.14% and Qwen3-Reranker-8B by 3.31%. The model supports a combined context length of 32K tokens per query-document pair, including up to 8K tokens for the query, enabling more accurate retrieval over longer documents. Additionally, rerank-3 supports instruction following, allowing users to guide relevance sco about rerank-3 here: mongodb.com/products/platform/ai-search-and-retrieval/models
+
+by mongodb
+Sep 30, 2026
+$0.05/M tokens
+Favicon for qwen
+Qwen3 Reranker 8B
+
+9.24B tokens
+
+Qwen3 Reranker 8B is a text reranking model from Alibaba Cloud built on the Qwen3 architecture. It evaluates query-document pairs to produce relevance scores for use in retrieval and RAG pipelines. Supports 100+ languages and programming languages, with instruction-aware reranking that allows customizing scoring criteria per task. Offers strong performance on multilingual benchmarks including MTEB, CMTEB, and MMTEB.
+
+by qwen
+Aug 13, 2026
+$0.20/M tokens
+Favicon for mongodb
+VoyageAI by MongoDB: rerank-2.5-lite
+
+58.6B tokens
+
+rerank-2.5-lite is a reranker optimized for both latency and quality, delivering a 7.16% improvement in retrieval accuracy over Cohere Rerank v3.5 across 93 datasets. It also outperformed Cohere Rerank v3.5 by 10.36% on the Massive Instructed Retrieval Benchmark (MAIR). The model supports a combined context length of 32K tokens per query–document pair, including up to 8K tokens for the query, enabling more accurate retrieval over longer documents. Additionally, rerank-2.5-lite supports instruction following, allowrerank-2.5-lite here: mongodb.com/products/platform/ai-search-and-retrieval/models
+
+by mongodb
+Jul 27, 2026
+$0.02/M tokens
+Favicon for mongodb
+VoyageAI by MongoDB: rerank-2.5
+
+32B tokens
+
+rerank-2.5 is a cutting-edge reranker optimized for quality, delivering a 7.94% improvement in retrieval accuracy over Cohere Rerank v3.5 across 93 datasets. It also outperformed Cohere Rerank v3.5 by 12.70% on the Massive Instructed Retrieval Benchmark (MAIR). The model supports a combined context length of 32K tokens per query–document pair, including up to 8K tokens for the query, enabling more accurate retrieval over longer documents. Additionally, rerank-2.5 supports instruction following, allowingbout rerank-2.5 here: mongodb.com/products/platform/ai-search-and-retrieval/models
+
+by mongodb
+Jul 27, 2026
+$0.05/M tokens
+Favicon for nvidia
+NVIDIA: Llama Nemotron Rerank VL 1B V2 (free)
+
+1.7B tokens
+
+Llama Nemotron Rerank VL 1B V2 is a 1.7B multimodal reranking model from NVIDIA. It evaluates the relevance of document images and text against user queries, designed for vision RAG pipelines handling charts, tables, infographics, and mixed-media documents. Functions as a cross-encoder that accepts text queries paired with image, text, or combined document inputs, delivering approximately 6-7% recall improvements over embedding-only baselines on visual document retrieval benchmarks.
+
+by nvidia
+Jun 9, 2026
+$0/M input tokens
+$0/M output tokens
+Favicon for cohere
+Cohere: Rerank 4 Pro
+
+Cohere's AI search foundation model for enhancing the relevance of information surfaced within search and RAG systems. Features a 32K context window, multilingual support across 100+ languages, no data pre-processing required, and state of the art performance with low latency.
+
+by cohere
+Apr 6, 2026
+$0.0025/search
+Favicon for cohere
+Cohere: Rerank 4 Fast
+
+Cohere's AI search foundation model for enhancing the relevance of information surfaced within search and RAG systems. Features a 32K context window, multilingual support across 100+ languages, no data pre-processing required, and high performance with lowest latency.
+
+by cohere
+Apr 6, 2026
+$0.002/search
+Favicon for cohere
+Cohere: Rerank v3.5
+
+Rerank v3.5 is designed to reorder search results for improved relevance. It supports multi-aspect and semi-structured data reranking over 100+ languages. Ideal for refining results from semantic or keyword search pipelines.
+
+by cohere
+Apr 5, 2026
+$0.001/search
+
+
+Favicon for openai
+OpenAI: GPT Transcribe
+
+99.4M characters
+
+GPT Transcribe is a high-accuracy speech-to-text model from OpenAI. It is suited for recorded audio, streamed file transcription, and committed Realtime turns, with free-form context, keyword hints, and multiple language hints for specialized terms and multilingual speech.
+
+by openai
+Aug 5, 2026
+$0.000075/second
+Favicon for fish-audio
+Fish Audio: Transcribe 1
+
+3.04M characters
+
+Transcribe 1 is a speech-to-text model from Fish Audio. It is suited for audio transcription with automatic language detection and can return timestamped word-level segments when alignment details are requested.
+
+by fish-audio
+Jul 29, 2026
+$0.0001/second
+Favicon for x-ai
+SpaceXAI: Grok STT 1.0
+
+246M characters
+
+Grok STT is SpaceXAI's speech-to-text model, available via the REST /v1/stt endpoint. It supports transcription with word-level timestamps, optional speaker diarization, and multichannel audio.
+
+by x-ai
+Jul 23, 2026
+$0.000028/second
+Favicon for deepgram
+Deepgram: Nova-3
+
+132M characters
+
+Deepgram Nova-3 general-purpose speech-to-text model with monolingual and multilingual transcription support.
+
+by deepgram
+Jul 15, 2026
+from $0.000072/second
+Favicon for microsoft
+Microsoft AI: MAI-Transcribe 1.5
+
+Going away December 22, 2026
+33.1M characters
+
+MAI-Transcribe 1.5 is a multilingual speech-to-text model from Microsoft AI. It is suited for captions, call transcription, subtitling, accessibility, and other voice-enabled applications, with reliable transcription across 43 languages, diverse accents, and noisy real-world audio. It supports automatic language identification and keyword biasing for domain-specific terminology, and improves long-form transcription speed over MAI-Transcribe-1. Speaker diarization is not supported.
+
+by microsoft
+Jun 2, 2026
+$0.36/hour
+Favicon for nvidia
+NVIDIA: Parakeet TDT 0.6B v3
+
+70M characters
+
+Parakeet TDT 0.6B v3 is NVIDIA's 600M-parameter multilingual speech-to-text model built on the FastConformer-TDT architecture. Trained on the Granary dataset (670,000+ hours of audio), it supports automatic language detection across all official EU languages and achieves a 6.34% average word error rate on the HuggingFace Open ASR Leaderboard. Returns transcribed text with punctuation and segment timestamps.
+
+by nvidia
+May 27, 2026
+$0.000017/second
+Favicon for mistralai
+Mistral: Voxtral Mini Transcribe
+
+140M characters
+
+Voxtral Mini Transcribe is Mistral's speech-to-text model, derived from the Voxtral Mini family. It accepts audio input and returns transcribed text via the standard transcription API. Suited for transcribing meetings, voice notes, podcasts, and other spoken content.
+
+by mistralai
+May 15, 2026
+$0.00005/second
+Favicon for google
+Google: Chirp 3
+
+7.65M characters
+
+Chirp 3 is Google's latest multilingual speech-to-text model. It offers enhanced transcription accuracy across 24 GA languages and 77+ preview languages, with support for automatic language detection, automatic punctuation, and a built-in denoiser for cleaner audio processing.
+
+by google
+May 5, 2026
+$0.000267/second
+Favicon for openai
+OpenAI: GPT-4o Mini Transcribe
+
+399M characters
+
+GPT-4o Mini Transcribe is OpenAI's smaller, cost-efficient speech-to-text model built on GPT-4o Mini audio capabilities. It's priced per token (input and output), making it suitable for high-volume transcription workflows that benefit from token-level billing transparency at a lower cost point.
+
+by openai
+May 1, 2026
+$1.25/M input tokens
+$5/M output tokens
+Favicon for openai
+OpenAI: Whisper Large V3 Turbo
+
+5.78B characters
+
+Whisper Large V3 Turbo is an optimized version of OpenAI's Whisper Large V3 speech recognition model, designed for speed and cost efficiency. It supports transcription across 99+ languages with a 12% word error rate, and accepts common audio formats including mp3, mp4, wav, webm, flac, and ogg. Achieves real-time speed factors up to 216x, making it well-suited for latency-sensitive and high-throughput transcription workloads.
+
+by openai
+May 1, 2026
+$0.000003/second
+Favicon for openai
+OpenAI: Whisper Large V3
+
+1.66B characters
+
+Whisper Large V3 is OpenAI's open-source automatic speech recognition model offering both audio transcription and translation. It supports 99+ languages and accepts common audio formats including mp3, mp4, wav, webm, flac, and ogg. With 1,550M parameters, it achieves a 10.3% word error rate and is well-suited for noise-robust, multilingual transcription in demanding conditions. Supports timestamp granularities at word and segment levels.
+
+by openai
+May 1, 2026
+$0.000008/second
+Favicon for openai
+OpenAI: Whisper 1
+
+181M characters
+
+Whisper is OpenAI's open-source automatic speech recognition model, available via API as whisper-1. It supports transcription and translation across 50+ languages from audio files up to 25 MB. Accepts formats including mp3, mp4, wav, and webm. Priced per minute of audio duration, billed to the nearest second.
+
+by openai
+Apr 27, 2026
+$0.0001/second
+Favicon for openai
+OpenAI: GPT-4o Transcribe
+
+37.1M characters
+
+GPT-4o Transcribe is OpenAI's high-quality speech-to-text model built on GPT-4o audio capabilities. It's priced per token (input and output), making it suitable for workflows that benefit from token-level billing transparency.
+
+by openai
+Apr 27, 2026
+$2.50/M input tokens
+$10/M output tokens
+
+
+Google: Lyria 3 Pro Preview
+
+219M tokens
+
+Full-length songs are priced at $0.08 per song. Lyria 3 is Google's family of music generation models, available through the Gemini API. With Lyria 3, you can generate high-quality, 48kHz stereo audio from text prompts or from images. These models deliver structural coherence, including vocals, timed lyrics, and full instrumental arrangements. Lyria 3 Pro can generate full-length songs with verses, choruses, bridges.
+
+by google
+Mar 30, 2026
+1.05M context
+$0.08/song
+Favicon for google
+Google: Lyria 3 Clip Preview
+
+8.66M tokens
+
+30 second duration clips are priced at $0.04 per clip. Lyria 3 is Google's family of music generation models, available through the Gemini API. With Lyria 3, you can generate high-quality, 48kHz stereo audio from text prompts or from images. These models deliver structural coherence, including vocals, timed lyrics, and full instrumental arrangements. Lyria 3 Clip can generate short clips, loops, previews.
+
+by google
+Mar 30, 2026
+1.05M context
+$0.04/song
+Favicon for openai
+OpenAI: GPT Audio
+
+111M tokens
+
+The gpt-audio model is OpenAI's first generally available audio model. The new snapshot features an upgraded decoder for more natural sounding voices and maintains better voice consistency. Audio is priced at $32 per million input tokens and $64 per million output tokens.
+
+by openai
+Jan 19, 2026
+128K context
+$2.50/M input tokens
+$10/M output tokens
+Favicon for openai
+OpenAI: GPT Audio Mini
+
+474M tokens
+
+A cost-efficient version of GPT Audio. The new snapshot features an upgraded decoder for more natural sounding voices and maintains better voice consistency. Input is priced at $0.60 per million tokens and output is priced at $2.40 per million tokens.
+
+by openai
+Jan 19, 2026
+128K context
+$0.60/M input tokens
+$2.40/M output tokens
+
+
+

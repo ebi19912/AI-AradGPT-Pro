@@ -61,7 +61,9 @@ venv.bak/
 .streamlit/secrets.toml
 
 # Database & runtime data
-data/
+data/*.db
+data/*.db-wal
+data/*.db-shm
 *.db
 *.sqlite
 *.sqlite3

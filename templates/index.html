@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>AradGPT Pro 2.5 | سامانه جامع هوش مصنوعی چندرسانه‌ای و پایگاه دانش</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/logo.svg">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/marked.min.js"></script>
+    <script src="/static/js/purify.min.js"></script>
+</head>
+<body>
+
+    <!-- ========================================== -->
+    <!-- 1. صفحه ورود و ثبت نام (AUTH VIEW) -->
+    <!-- ========================================== -->
+    <div id="auth-view" style="display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px;">
+        <div class="glass-card" style="width: 100%; max-width: 450px; text-align: center; padding: 36px 28px;">
+            <div style="display: flex; justify-content: center; margin-bottom: 14px;">
+                <img src="/assets/logo.svg" alt="AradGPT Logo" style="width: 68px; height: 68px; filter: drop-shadow(0 6px 18px rgba(139, 92, 246, 0.5));">
+            </div>
+            <h1 style="font-size: 1.95rem; font-weight: 900; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">AradGPT Pro 2.5</h1>
+            <p style="color: var(--text-secondary); font-size: 0.92rem; margin-bottom: 24px;">پلتفرم سازمانی چت، تصویرسازی، صوت و پایگاه دانش هوشمند</p>
+
+            <div class="tabs-nav" style="justify-content: center; margin-bottom: 22px;">
+                <button class="tab-btn active" id="auth-tab-login-btn" onclick="switchAuthTab('login')">🔑 ورود به حساب</button>
+                <button class="tab-btn" id="auth-tab-register-btn" onclick="switchAuthTab('register')">📝 ثبت‌نام کاربر جدید</button>
+            </div>
+
+            <!-- فرم ورود -->
+            <form id="login-form" onsubmit="handleLogin(event)">
+                <div class="form-group" style="text-align: right;">
+                    <label>نام کاربری</label>
+                    <input type="text" id="login-username" class="form-control" placeholder="admin یا نام کاربری..." required>
+                </div>
+                <div class="form-group" style="text-align: right;">
+                    <label>رمز عبور</label>
+                    <input type="password" id="login-password" class="form-control" placeholder="••••••••" required>
+                </div>
+                <div id="login-alert" style="margin-bottom: 14px; display: none; font-size: 0.86rem; padding: 10px; border-radius: 10px;"></div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 1rem;">🚀 ورود به سامانه</button>
+            </form>
+
+            <!-- فرم ثبت‌نام -->
+            <form id="register-form" onsubmit="handleRegister(event)" style="display: none;">
+                <div style="background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; padding: 12px; margin-bottom: 16px; font-size: 0.85rem; color: #34d399; text-align: right;">
+                    🎁 <b>هدیه خوش‌آمدگویی:</b> با ثبت‌نام اولیه، حساب شما به مبلغ <b>۲۰,۰۰۰ تومان</b> به صورت خودکار شارژ خواهد شد.
+                </div>
+                <div class="form-group" style="text-align: right;">
+                    <label>نام کاربری دلخواه</label>
+                    <input type="text" id="reg-username" class="form-control" placeholder="مثال: arad_user" required>
+                </div>
+                <div class="form-group" style="text-align: right;">
+                    <label>رمز عبور</label>
+                    <input type="password" id="reg-password" class="form-control" placeholder="حداقل ۶ کاراکتر" required>
+                </div>
+                <div class="form-group" style="text-align: right;">
+                    <label>تکرار رمز عبور</label>
+                    <input type="password" id="reg-confirm-password" class="form-control" placeholder="تکرار رمز عبور" required>
+                </div>
+                <div id="register-alert" style="margin-bottom: 14px; display: none; font-size: 0.86rem; padding: 10px; border-radius: 10px;"></div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 1rem;">✨ ساخت حساب و دریافت هدیه</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- ========================================== -->
+    <!-- 2. داشبورد اصلی برنامه (DASHBOARD VIEW) -->
+    <!-- ========================================== -->
+    <div id="dashboard-view" style="display: none;">
+        <div id="app-container">
+
+            <!-- منوی کناری (Sidebar) -->
+            <aside id="sidebar">
+                <div class="brand-header">
+                    <img src="/assets/logo.svg" alt="AradGPT Logo">
+                    <div>
+                        <h2>AradGPT Pro</h2>
+                        <span style="font-size: 0.72rem; color: var(--text-muted);">Enterprise 2.5 Luminous</span>
+                    </div>
+                </div>
+
+                <!-- باکس پروفایل کاربر -->
+                <div class="user-profile-box">
+                    <span class="role-badge" id="user-role-badge">👤 کاربر سامانه</span>
+                    <div class="username" id="sidebar-username">کاربر</div>
+                    <div class="balance" id="sidebar-balance">💎 ۰ تومان</div>
+                </div>
+
+                <!-- دکمه چت جدید اصلی در سایدبار -->
+                <div style="margin-bottom: 16px;">
+                    <button class="btn btn-primary" style="width: 100%; padding: 12px 14px; font-size: 0.95rem; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 18px rgba(139, 92, 246, 0.35); border-radius: 12px;" onclick="startNewChat()">
+                        <span style="font-size: 1.15rem;">➕</span> <span>گفتگوی جدید (چت نو)</span>
+                    </button>
+                </div>
+
+                <!-- ناوبری استودیوها -->
+                <nav class="nav-menu">
+                    <div class="nav-item active" id="nav-chat" onclick="switchNav('chat')">
+                        <span>💬</span> <span>استودیو چت هوشمند</span>
+                    </div>
+                    <div class="nav-item" id="nav-knowledge" onclick="switchNav('knowledge')">
+                        <span>📚</span> <span>پایگاه دانش (RAG)</span>
+                    </div>
+                    <div class="nav-item" id="nav-explorer" onclick="switchNav('explorer')">
+                        <span>🔍</span> <span>کاوشگر مدل‌ها (۴۵۵)</span>
+                    </div>
+                    <div class="nav-item" id="nav-image" onclick="switchNav('image')">
+                        <span>🎨</span> <span>استودیو تصویر و گرافیک</span>
+                    </div>
+                    <div class="nav-item" id="nav-audio" onclick="switchNav('audio')">
+                        <span>🎙️</span> <span>استودیو صوتی هوشمند</span>
+                    </div>
+                    <div class="nav-item" id="nav-wallet" onclick="switchNav('wallet')">
+                        <span>💳</span> <span>کیف پول و مدیریت مالی</span>
+                    </div>
+                    <div class="nav-item" id="nav-admin" style="display: none;" onclick="switchNav('admin')">
+                        <span>⚙️</span> <span>کنترل‌پنل مدیریت ارشد</span>
+                    </div>
+                </nav>
+
+                <!-- تاریخچه چت‌ها -->
+                <div class="sessions-section" id="sidebar-chat-sessions">
+                    <div class="sessions-header">
+                        <span style="font-weight: 700; color: var(--text-primary); font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                            <span>🕒</span> <span>تاریخچه گفتگوها</span>
+                        </span>
+                        <div style="display: flex; gap: 4px;">
+                            <button class="btn btn-sm btn-secondary" onclick="openChatHistoryModal()" title="مشاهده کامل در پنجره" style="padding: 2px 7px; font-size: 0.72rem;">📜 آرشیو</button>
+                            <button class="btn btn-sm btn-secondary" onclick="startNewChat()" title="شروع گفتگوی جدید" style="padding: 2px 7px; font-size: 0.72rem;">➕ نو</button>
+                        </div>
+                    </div>
+                    <div id="sessions-list-container" style="max-height: 240px; overflow-y: auto;"></div>
+                </div>
+
+                <!-- دکمه خروج -->
+                <div style="margin-top: auto; padding-top: 14px; border-top: 1px solid var(--card-border);">
+                    <button class="btn btn-secondary" style="width: 100%; justify-content: center; color: var(--danger);" onclick="handleLogout()">
+                        🚪 خروج از حساب
+                    </button>
+                </div>
+            </aside>
+
+
+            <!-- بخش اصلی محتوا (Main Content Workspace) -->
+            <main id="main-content">
+
+                <!-- هدر وضعیت بالا -->
+                <header class="top-header">
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                            <h1 id="view-title" style="margin: 0;">استودیو چت هوشمند</h1>
+                            <button class="btn btn-sm btn-primary" id="header-new-chat-btn" onclick="startNewChat()" style="padding: 5px 14px; font-size: 0.82rem; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; border-radius: 10px;">
+                                <span>➕</span> <span>چت جدید</span>
+                            </button>
+                            <button class="btn btn-sm btn-secondary" id="header-history-btn" onclick="openChatHistoryModal()" style="padding: 5px 12px; font-size: 0.82rem; display: inline-flex; align-items: center; gap: 6px; border-radius: 10px;">
+                                <span>📜</span> <span>تاریخچه گفتگوها</span>
+                            </button>
+                        </div>
+                        <p id="view-subtitle" style="margin-top: 4px;">دسترسی به برترین مدل‌های هوش مصنوعی جهان با پشتیبانی از تحلیل اسناد و کدنویسی</p>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <button class="theme-toggle-btn" id="theme-toggle-btn" onclick="toggleTheme()" title="تغییر تم رنگی سامانه">
+                            🌓 حالت نئونی / روشن
+                        </button>
+                        <span id="system-online-badge" style="font-size: 0.84rem; color: var(--neon-emerald); font-weight: 600; display: flex; align-items: center; gap: 6px;">
+                            <span style="width: 8px; height: 8px; border-radius: 50%; background: var(--neon-emerald); box-shadow: 0 0 10px var(--neon-emerald);"></span>
+                            سامانه آنلاین
+                        </span>
+                    </div>
+                </header>
+
+
+                <!-- ========================================== -->
+                <!-- پنل 1: استودیو چت هوشمند -->
+                <!-- ========================================== -->
+                <section id="panel-chat">
+                    <!-- نوار فیلتر و دسته‌بندی مدل‌ها -->
+                    <div class="glass-card" style="padding: 16px 20px; margin-bottom: 14px;">
+                        <!-- چیپ‌های دسته‌بندی مدل -->
+                        <div class="category-chips-bar" id="chat-category-chips">
+                            <button class="chip-btn active" id="chip-all" onclick="filterChatModelsByCategory('all')">✨ همه مدل‌ها</button>
+                            <button class="chip-btn" id="chip-free" onclick="filterChatModelsByCategory('free')">🎁 ۱۰۰٪ رایگان</button>
+                            <button class="chip-btn" id="chip-reasoning" onclick="filterChatModelsByCategory('reasoning')">🧠 تفکر و استدلال عمیق</button>
+                            <button class="chip-btn" id="chip-coding" onclick="filterChatModelsByCategory('coding')">💻 کدنویسی و توسعه</button>
+                            <button class="chip-btn" id="chip-flagship" onclick="filterChatModelsByCategory('flagship')">🚀 پرچمداران همه‌کاره</button>
+                            <button class="chip-btn" id="chip-fast" onclick="filterChatModelsByCategory('fast')">⚡ سریع و اقتصادی</button>
+                        </div>
+
+                        <!-- انتخابگر و سرچ مدل همراه با دکمه‌های چت نو و تاریخچه -->
+                        <div style="display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+                            <div style="display: flex; align-items: center; gap: 10px; flex-grow: 1; flex-wrap: wrap;">
+                                <label style="font-size: 0.88rem; color: var(--text-secondary); white-space: nowrap;">🤖 مدل فعال:</label>
+                                <select id="chat-model-select" class="form-control" style="max-width: 440px;" onchange="onChatModelChange()">
+                                    <!-- توسط جاوااسکریپت پر می‌شود -->
+                                </select>
+                                <input type="text" id="chat-model-search-input" class="form-control" style="max-width: 200px;" placeholder="🔍 جستجوی مدل..." oninput="onSearchChatModels(this.value)">
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                                <button class="btn btn-primary btn-sm" onclick="startNewChat()" style="display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; font-weight: 700;" title="پاکسازی و شروع گفتگوی تازه">
+                                    <span>➕</span> <span>چت جدید</span>
+                                </button>
+                                <button class="btn btn-secondary btn-sm" onclick="openChatHistoryModal()" style="display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px;" title="مشاهده تاریخچه کامل گفتگوها">
+                                    <span>📜</span> <span>تاریخچه</span>
+                                </button>
+                                <div id="chat-model-tariff-badge" style="background: rgba(255,255,255,0.03); border: 1px solid var(--card-border); padding: 7px 14px; border-radius: 12px; font-size: 0.82rem;"></div>
+                            </div>
+                        </div>
+
+                        <!-- تنظیمات پیشرفته چت (Accordion) -->
+                        <details style="margin-top: 14px; border-top: 1px solid var(--card-border); padding-top: 12px;">
+                            <summary style="cursor: pointer; font-size: 0.86rem; color: var(--text-muted); font-weight: 500;">⚙️ تنظیمات پرامپت سیستمی و اسلایدر خلاقیت (Temperature)</summary>
+                            <div class="grid-2" style="margin-top: 12px;">
+                                <div>
+                                    <label style="font-size: 0.84rem; color: var(--text-secondary);">دستورالعمل سیستمی (System Prompt):</label>
+                                    <textarea id="chat-system-prompt" class="form-control" rows="2" placeholder="You are AradGPT Pro..."></textarea>
+                                </div>
+                                <div>
+                                    <label style="font-size: 0.84rem; color: var(--text-secondary);">میزان خلاقیت (Temperature: <span id="temp-val">0.7</span>):</label>
+                                    <input type="range" id="chat-temperature" min="0" max="1.5" step="0.1" value="0.7" style="width: 100%; margin-top: 10px;" oninput="document.getElementById('temp-val').innerText = this.value">
+                                </div>
+                            </div>
+                            <!-- دکمه‌های پرامپت آماده -->
+                            <div style="display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap;">
+                                <button class="btn btn-sm btn-secondary" onclick="applyPresetPrompt('لطفاً به عنوان معمار ارشد، کدهای زیر را خطایابی، تحلیل و بهینه‌سازی کن:\n\n')">💻 برنامه‌نویسی</button>
+                                <button class="btn btn-sm btn-secondary" onclick="applyPresetPrompt('یک مقاله جامع، جذاب و سئو شده در مورد موضوع زیر بنویس:\n\n')">✍️ تولید محتوا</button>
+                                <button class="btn btn-sm btn-secondary" onclick="applyPresetPrompt('متن زیر را به فارسی روان و رسمی ترجمه کن:\n\n')">🌐 ترجمه و نگارش</button>
+                                <button class="btn btn-sm btn-secondary" onclick="applyPresetPrompt('متن زیر را به صورت نکات کلیدی خلاصه و بینش‌های مهم آن را بیان کن:\n\n')">📊 خلاصه‌سازی</button>
+                            </div>
+                        </details>
+                    </div>
+
+                    <!-- کانتینر پیام‌های چت -->
+                    <div class="chat-container">
+                        <div class="messages-list" id="chat-messages-list">
+                            <div style="text-align: center; margin: 40px auto; color: var(--text-muted); max-width: 480px;">
+                                <div style="font-size: 3rem; margin-bottom: 10px;">✨</div>
+                                <h3 style="color: var(--text-primary); margin-bottom: 8px; font-weight: 700;">سلام! چه کمکی از دست من برمی‌آید؟</h3>
+                                <p style="font-size: 0.92rem;">سوال خود را بپرسید، متنی برای تحلیل بفرستید یا سندی را پیوست فرمایید.</p>
+                            </div>
+                        </div>
+
+                        <!-- نمایش پیوست فایل سریع -->
+                        <div id="file-attachment-badge" style="display: none; background: rgba(99, 102, 241, 0.16); border: 1px solid rgba(99, 102, 241, 0.35); border-radius: 12px; padding: 8px 16px; margin-bottom: 8px; font-size: 0.86rem; align-items: center; justify-content: space-between;">
+                            <span id="file-attachment-name">📎 فایل ضمیمه</span>
+                            <button class="btn btn-sm btn-danger" onclick="removeAttachment()">✕ حذف</button>
+                        </div>
+
+                        <!-- انتخابگر پایگاه دانش (RAG Integration) -->
+                        <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 10px; padding: 8px 16px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--card-border); border-radius: 12px; font-size: 0.84rem; flex-wrap: wrap;">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <span style="color: var(--neon-cyan); font-weight: 600;">📚 پایگاه دانش متصل:</span>
+                                <select id="chat-knowledge-select" class="form-control" style="max-width: 290px; padding: 5px 12px; font-size: 0.82rem;" onchange="onChatKnowledgeChange()">
+                                    <option value="">بدون پایگاه دانش (چت مستقیم عمومی)</option>
+                                </select>
+                            </div>
+                            <div id="chat-knowledge-status" style="font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px;">
+                                <span>چت بدون استناد اسناد</span>
+                            </div>
+                        </div>
+
+                        <!-- نوار ورودی چت -->
+                        <div class="chat-input-bar">
+                            <label for="chat-file-input" class="btn btn-secondary btn-sm" style="cursor: pointer; margin: 0; padding: 10px 14px;" title="پیوست سند (PDF, Word, TXT, CSV)">
+                                📎
+                            </label>
+                            <input type="file" id="chat-file-input" style="display: none;" onchange="handleFileUpload(event)" accept=".pdf,.docx,.txt,.csv,.json,.py,.md">
+
+                            <textarea id="chat-user-input" placeholder="پیام خود را بنویسید (Shift+Enter برای خط جدید)..." onkeydown="handleChatKeyDown(event)"></textarea>
+
+                            <button id="chat-send-btn" class="btn btn-primary" onclick="sendMessage()">
+                                🚀 ارسال
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ========================================== -->
+                <!-- پنل 2: پایگاه دانش سازمانی و شخصی (RAG) -->
+                <!-- ========================================== -->
+                <section id="panel-knowledge" style="display: none;">
+                    <div class="tabs-nav">
+                        <button class="tab-btn active" id="kb-tab-collections-btn" onclick="switchKnowledgeTab('collections')">📚 مجموعه‌های پایگاه دانش من</button>
+                        <button class="tab-btn" id="kb-tab-search-btn" onclick="switchKnowledgeTab('search')">🔍 آزمایش و جستجوی معنایی (Embeddings)</button>
+                    </div>
+
+                    <!-- تب ۱: مجموعه‌ها و اسناد -->
+                    <div id="kb-view-collections">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+                            <div>
+                                <h3 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary);">کتابخانه دانش و پایگاه اسناد شما</h3>
+                                <p style="font-size: 0.86rem; color: var(--text-muted); margin-top: 4px;">اسناد، فایل‌ها و آیین‌نامه‌ها را بارگذاری کنید تا هوش مصنوعی با استناد به آن‌ها به سوالات شما پاسخ دهد.</p>
+                            </div>
+                            <button class="btn btn-primary" onclick="openCreateCollectionModal()">
+                                ➕ ساخت مجموعه پایگاه دانش جدید
+                            </button>
+                        </div>
+
+                        <!-- گرید مجموعه‌ها -->
+                        <div class="grid-3" id="kb-collections-grid"></div>
+
+                        <!-- جزئیات مجموعه فعال انتخاب شده -->
+                        <div id="kb-active-collection-details" style="display: none; margin-top: 26px;">
+                            <div class="glass-card">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; border-bottom: 1px solid var(--card-border); padding-bottom: 14px; flex-wrap: wrap; gap: 12px;">
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span id="kb-active-col-icon" style="font-size: 2.2rem;">📚</span>
+                                        <div>
+                                            <h3 id="kb-active-col-title" style="margin: 0; font-size: 1.2rem; color: var(--text-primary);">عنوان مجموعه</h3>
+                                            <p id="kb-active-col-desc" style="margin: 0; font-size: 0.85rem; color: var(--text-muted);"></p>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; gap: 10px;">
+                                        <button class="btn btn-primary" onclick="chatWithActiveCollection()">
+                                            💬 گفتگو با این پایگاه
+                                        </button>
+                                        <button class="btn btn-danger" onclick="deleteActiveCollection()">
+                                            🗑️ حذف این مجموعه
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- فرم افزودن سند: آپلود یا متن مستقیم -->
+                                <div class="grid-2" style="margin-bottom: 24px;">
+                                    <div style="background: rgba(255,255,255,0.02); border: 2px dashed var(--card-border); border-radius: 14px; padding: 22px; text-align: center;">
+                                        <div style="font-size: 2.5rem; margin-bottom: 8px;">📁</div>
+                                        <h4 style="margin-bottom: 6px; font-size: 1rem;">بارگذاری فایل سند</h4>
+                                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 16px;">پشتیبانی کامل از PDF، Word (docx)، TXT، CSV، Markdown و JSON</p>
+                                        <input type="file" id="kb-upload-file-input" style="display: none;" onchange="uploadKnowledgeFile(event)" accept=".pdf,.docx,.txt,.csv,.json,.py,.md">
+                                        <label for="kb-upload-file-input" class="btn btn-secondary" style="cursor: pointer;">
+                                            📤 انتخاب فایل و ساخت امبدینگ
+                                        </label>
+                                        <div id="kb-upload-spinner" style="display: none; margin-top: 12px; font-size: 0.84rem; color: var(--neon-cyan);">
+                                            ⏳ در حال استخراج محتوا، تقطیع جملات و وکتورسازی...
+                                        </div>
+                                    </div>
+
+                                    <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); border-radius: 14px; padding: 20px;">
+                                        <h4 style="margin-bottom: 10px; font-size: 1rem;">📝 درج مستقیم متن یا یادداشت</h4>
+                                        <div class="form-group" style="margin-bottom: 10px;">
+                                            <input type="text" id="kb-new-doc-title" class="form-control" placeholder="عنوان سند (مثال: دستورالعمل سازمانی)">
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 10px;">
+                                            <textarea id="kb-new-doc-content" class="form-control" rows="3" placeholder="محتوای متنی را اینجا بنویسید یا الصاق کنید..."></textarea>
+                                        </div>
+                                        <button class="btn btn-primary" style="width: 100%;" onclick="submitKnowledgeDocText()">
+                                            ⚡ ذخیره و ساخت وکتور
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- لیست اسناد این مجموعه -->
+                                <h4 style="margin-bottom: 12px; font-size: 1rem; color: var(--text-primary);">📄 اسناد نمایه‌شده در این مجموعه:</h4>
+                                <div id="kb-documents-list-container"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- تب ۲: آزمایش جستجوی معنایی -->
+                    <div id="kb-view-search" style="display: none;">
+                        <div class="glass-card" style="max-width: 820px; margin: 0 auto;">
+                            <h3 style="margin-bottom: 8px; color: var(--neon-cyan); font-size: 1.25rem;">🔍 آزمایش موتور جستجوی معنایی (Vector Cosine Similarity)</h3>
+                            <p style="font-size: 0.86rem; color: var(--text-muted); margin-bottom: 20px;">
+                                در این بخش می‌توانید عملکرد موتور وکتور امبدینگ را بیازمایید. با وارد کردن هر سوال، مرتبط‌ترین تکه‌های اسناد استخراج شده و درصد تشابه آن‌ها نمایش داده می‌شود.
+                            </p>
+
+                            <div class="form-group">
+                                <label>انتخاب پایگاه دانش:</label>
+                                <select id="kb-search-col-select" class="form-control"></select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>پرسش یا عبارت جستجو:</label>
+                                <div style="display: flex; gap: 10px;">
+                                    <input type="text" id="kb-search-query-input" class="form-control" placeholder="مثلاً: شرایط فسخ قرارداد چیست؟" onkeydown="if(event.key==='Enter') executeKnowledgeSearch()">
+                                    <button class="btn btn-primary" onclick="executeKnowledgeSearch()">🔍 جستجوی معنایی</button>
+                                </div>
+                            </div>
+
+                            <div id="kb-search-results-container" style="margin-top: 22px;"></div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ========================================== -->
+                <!-- پنل 3: کاوشگر مدل‌های هوش مصنوعی (۴۵۵ مدل) -->
+                <!-- ========================================== -->
+                <section id="panel-explorer" style="display: none;">
+                    <div class="glass-card" style="margin-bottom: 20px; padding: 22px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 14px;">
+                            <div>
+                                <h2 style="font-size: 1.35rem; font-weight: 800; color: var(--text-primary);">🌐 کاوشگر جامع مدل‌های هوش مصنوعی جهان</h2>
+                                <p style="font-size: 0.88rem; color: var(--text-muted); margin-top: 4px;">دسترسی کامل به بیش از ۴۵۰ مدل کاتالوگ بین‌المللی؛ مقایسه ظرفیت کانتکست، قیمت و توانمندی‌ها</p>
+                            </div>
+                            <div style="display: flex; gap: 10px; align-items: center;">
+                                <input type="text" id="explorer-search-input" class="form-control" style="width: 260px;" placeholder="🔍 جستجوی نام مدل یا کمپانی..." oninput="filterExplorerModels()">
+                                <select id="explorer-sort-select" class="form-control" style="width: 170px;" onchange="filterExplorerModels()">
+                                    <option value="name">مرتب‌سازی: بر اساس نام</option>
+                                    <option value="price_asc">ارزان‌ترین ابتدا</option>
+                                    <option value="price_desc">گران‌ترین ابتدا</option>
+                                    <option value="context_desc">بزرگ‌ترین حافظه کانتکست</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- فیلترهای سریع کمپانی‌ها -->
+                        <div class="category-chips-bar" id="explorer-vendor-chips" style="margin-bottom: 10px;">
+                            <button class="chip-btn active" onclick="setExplorerVendor('all', this)">✨ همه برندها (۴۵۵)</button>
+                            <button class="chip-btn" onclick="setExplorerVendor('free', this)">🎁 رایگان‌ها</button>
+                            <button class="chip-btn" onclick="setExplorerVendor('openai', this)">🟢 OpenAI</button>
+                            <button class="chip-btn" onclick="setExplorerVendor('anthropic', this)">🟠 Anthropic (Claude)</button>
+                            <button class="chip-btn" onclick="setExplorerVendor('google', this)">🔵 Google (Gemini)</button>
+                            <button class="chip-btn" onclick="setExplorerVendor('deepseek', this)">🟣 DeepSeek</button>
+                            <button class="chip-btn" onclick="setExplorerVendor('meta', this)">🟦 Meta (Llama)</button>
+                            <button class="chip-btn" onclick="setExplorerVendor('mistral', this)">🔴 Mistral AI</button>
+                            <button class="chip-btn" onclick="setExplorerVendor('qwen', this)">🟡 Qwen / Alibaba</button>
+                        </div>
+
+                        <div style="font-size: 0.82rem; color: var(--text-muted); display: flex; justify-content: space-between;">
+                            <span id="explorer-count-label">در حال بارگذاری مدل‌ها...</span>
+                            <span>قیمت‌ها بر حسب هر ۱ میلیون توکن ورودی / خروجی به تومان محاسبه شده‌اند</span>
+                        </div>
+                    </div>
+
+                    <!-- گرید کارت‌های مدل -->
+                    <div class="grid-3" id="explorer-models-grid" style="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px;"></div>
+                </section>
+
+
+                <!-- ========================================== -->
+                <!-- پنل 4: استودیو تصویر و گرافیک -->
+                <!-- ========================================== -->
+                <section id="panel-image" style="display: none;">
+                    <div class="tabs-nav">
+                        <button class="tab-btn active" id="img-tab-create-btn" onclick="switchImageTab('create')">✨ ساخت تصویر جدید</button>
+                        <button class="tab-btn" id="img-tab-gallery-btn" onclick="switchImageTab('gallery')">🖼️ گالری و تصاویر قبلی من</button>
+                    </div>
+
+                    <div id="image-create-tab">
+                        <div class="grid-2">
+                            <div>
+                                <div class="glass-card">
+                                    <h3 style="margin-bottom: 16px; font-size: 1.15rem; color: #a5b4fc;">🎨 استودیو تصویرسازی هوش مصنوعی</h3>
+                                    <div class="form-group">
+                                        <label>موتور تصویر (Model):</label>
+                                        <select id="image-model-select" class="form-control" onchange="onImageModelChange()"></select>
+                                    </div>
+                                    <div class="grid-2">
+                                        <div class="form-group">
+                                            <label>سبک هنری و استایل:</label>
+                                            <select id="image-style-select" class="form-control">
+                                                <option value="">بدون سبک خاص</option>
+                                                <option value="photorealistic, 8k resolution, highly detailed, cinematic lighting">واقع‌گرایانه (Photorealistic)</option>
+                                                <option value="digital art, trending on artstation, masterpiece, vibrant colors">هنر دیجیتال (Digital Art)</option>
+                                                <option value="cinematic shot, atmospheric, shallow depth of field, 35mm">سینمایی (Cinematic)</option>
+                                                <option value="anime style, expressive, vibrant colors, makoto shinkai aesthetic">انیمه / مانگا (Anime)</option>
+                                                <option value="3D render, octane render, unreal engine 5, metallic textures">رندر سه‌بعدی (3D Render)</option>
+                                                <option value="minimalist art, clean lines, modern design">مینیمال (Minimalist)</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>ابعاد تصویر:</label>
+                                            <select id="image-size-select" class="form-control">
+                                                <option value="1024x1024">1024x1024 (مربع)</option>
+                                                <option value="1024x1792">1024x1792 (عمودی)</option>
+                                                <option value="1792x1024">1792x1024 (افقی)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>توصیف تصویر مورد نظر (Prompt):</label>
+                                        <textarea id="image-prompt-input" class="form-control" rows="4" placeholder="مثال: فضانوردی با کلاه‌خود شیشه‌ای در دشت‌های بنفش کهکشان آندرومدا..."></textarea>
+                                    </div>
+                                    <div id="image-tariff-display" style="margin-bottom: 14px; font-size: 0.88rem; color: #34d399; font-weight: 600;">
+                                        💎 هزینه برآورد شده: ۳,۴۰۰ تومان
+                                    </div>
+                                    <button class="btn btn-primary" id="btn-generate-image" style="width: 100%; padding: 12px;" onclick="generateImage()">
+                                        🚀 ساخت و پردازش تصویر
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- پیش‌نمایش تصویر خروجی -->
+                            <div>
+                                <div class="glass-card" style="text-align: center; min-height: 440px; display: flex; flex-direction: column; align-items: center; justify-content: center;" id="image-output-container">
+                                    <div style="color: var(--text-muted);">
+                                        <div style="font-size: 3.2rem; margin-bottom: 12px;">🖼️</div>
+                                        <p>تصویر ساخته‌شده در این بخش با قابلیت دانلود با کیفیت بالا نمایش داده خواهد شد.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="image-gallery-tab" style="display: none;">
+                        <h3 style="margin-bottom: 18px;">🖼️ آرشیو تصاویر شما</h3>
+                        <div class="grid-3" id="image-gallery-grid"></div>
+                    </div>
+                </section>
+
+
+                <!-- ========================================== -->
+                <!-- پنل 5: استودیو صوتی هوشمند -->
+                <!-- ========================================== -->
+                <section id="panel-audio" style="display: none;">
+                    <div class="tabs-nav">
+                        <button class="tab-btn active" id="audio-tab-tts-btn" onclick="switchAudioTab('tts')">🎙️ تبدیل متن به صدا (TTS)</button>
+                        <button class="tab-btn" id="audio-tab-stt-btn" onclick="switchAudioTab('stt')">🎧 پیاده‌سازی صوت به متن (STT)</button>
+                    </div>
+
+                    <!-- بخش TTS -->
+                    <div id="audio-tts-container">
+                        <div class="glass-card" style="max-width: 740px; margin: 0 auto;">
+                            <h3 style="margin-bottom: 14px; color: #a5b4fc;">🎙️ گویندگی هوشمند و سنتز صدا</h3>
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label>موتور صدا (Model):</label>
+                                    <select id="tts-model-select" class="form-control"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label>انتخاب گوینده (Voice):</label>
+                                    <select id="tts-voice-select" class="form-control">
+                                        <option value="alloy">🎭 Alloy (خنثی و شفاف)</option>
+                                        <option value="echo">🎪 Echo (گرم و بم)</option>
+                                        <option value="fable">📚 Fable (لحن روایی)</option>
+                                        <option value="onyx">🎯 Onyx (مقتدر و عمیق)</option>
+                                        <option value="nova">⚡ Nova (پرانرژی و زنانه)</option>
+                                        <option value="shimmer">✨ Shimmer (آرام و ملایم)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>سرعت خوانش (Speed: <span id="tts-speed-val">1.0</span>x):</label>
+                                <input type="range" id="tts-speed-range" min="0.5" max="2.0" step="0.1" value="1.0" style="width: 100%;" oninput="document.getElementById('tts-speed-val').innerText = this.value">
+                            </div>
+                            <div class="form-group">
+                                <label>متن مورد نظر برای تبدیل به گفتار:</label>
+                                <textarea id="tts-input-text" class="form-control" rows="4" placeholder="سلام! به سامانه AradGPT Pro خوش آمدید..."></textarea>
+                            </div>
+                            <button class="btn btn-primary" id="btn-generate-tts" style="width: 100%; padding: 12px;" onclick="generateTTS()">
+                                🎵 تولید فایل صوتی
+                            </button>
+
+                            <div id="tts-player-container" style="display: none; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--card-border); text-align: center;">
+                                <audio id="tts-audio-player" controls style="width: 100%; margin-bottom: 12px;"></audio>
+                                <a id="tts-download-link" class="btn btn-secondary" download="speech.mp3">📥 دانلود فایل صوتی (.mp3)</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- بخش STT -->
+                    <div id="audio-stt-container" style="display: none;">
+                        <div class="glass-card" style="max-width: 740px; margin: 0 auto;">
+                            <h3 style="margin-bottom: 14px; color: #a5b4fc;">🎧 پیاده‌سازی صوت به متن با هوش مصنوعی Whisper</h3>
+                            <div class="grid-2">
+                                <div class="form-group">
+                                    <label>موتور پردازش صوت:</label>
+                                    <select id="stt-model-select" class="form-control"></select>
+                                </div>
+                                <div class="form-group">
+                                    <label>زبان گفتار:</label>
+                                    <select id="stt-lang-select" class="form-control">
+                                        <option value="fa">fa (فارسی)</option>
+                                        <option value="en">en (انگلیسی)</option>
+                                        <option value="auto">تشخیص خودکار</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; gap: 14px; margin-bottom: 16px; flex-wrap: wrap;">
+                                <button class="btn btn-secondary" id="btn-record-mic" onclick="toggleMicRecording()">
+                                    🎙️ ضبط زنده با میکروفون
+                                </button>
+                                <label for="stt-file-input" class="btn btn-secondary" style="cursor: pointer; margin: 0;">
+                                    📁 انتخاب فایل صوتی (MP3/WAV)
+                                </label>
+                                <input type="file" id="stt-file-input" style="display: none;" accept="audio/*" onchange="onSTTFileSelected(event)">
+                            </div>
+                            <div id="stt-selected-file-label" style="font-size: 0.88rem; color: #34d399; margin-bottom: 12px;"></div>
+
+                            <button class="btn btn-primary" id="btn-run-stt" style="width: 100%; padding: 12px;" onclick="runSTT()">
+                                📝 استخراج و پیاده‌سازی متن
+                            </button>
+
+                            <div id="stt-result-container" style="display: none; margin-top: 18px;">
+                                <label style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 6px; display: block;">متن استخراج شده:</label>
+                                <textarea id="stt-output-text" class="form-control" rows="6" readonly></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ========================================== -->
+                <!-- پنل 6: کیف پول و امور مالی -->
+                <!-- ========================================== -->
+                <section id="panel-wallet" style="display: none;">
+                    <div class="tabs-nav">
+                        <button class="tab-btn active" id="w-tab-charge-btn" onclick="switchWalletTab('charge')">💳 افزایش موجودی (واریز)</button>
+                        <button class="tab-btn" id="w-tab-requests-btn" onclick="switchWalletTab('requests')">📋 وضعیت فیش‌های من</button>
+                        <button class="tab-btn" id="w-tab-history-btn" onclick="switchWalletTab('history')">📊 تاریخچه تراکنش‌ها و مصارف</button>
+                    </div>
+
+                    <!-- تب افزایش موجودی -->
+                    <div id="wallet-charge-tab">
+                        <div class="grid-2">
+                            <!-- کارت‌های بانکی -->
+                            <div class="glass-card">
+                                <h3 style="margin-bottom: 10px; color: #a5b4fc;">🏦 شماره حساب‌های واریز وجه</h3>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">مبلغ مورد نظر را واریز نموده و فیش را در فرم روبه‌رو بارگذاری فرمایید:</p>
+                                <div id="wallet-bank-cards-list"></div>
+                            </div>
+
+                            <!-- فرم ثبت فیش -->
+                            <div class="glass-card">
+                                <h3 style="margin-bottom: 10px; color: #a5b4fc;">📝 ثبت فیش واریزی</h3>
+                                <div style="display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap;">
+                                    <button class="btn btn-sm btn-secondary" onclick="document.getElementById('deposit-amount-input').value = 50000">۵۰ هزار</button>
+                                    <button class="btn btn-sm btn-secondary" onclick="document.getElementById('deposit-amount-input').value = 100000">۱۰۰ هزار</button>
+                                    <button class="btn btn-sm btn-secondary" onclick="document.getElementById('deposit-amount-input').value = 200000">۲۰۰ هزار</button>
+                                    <button class="btn btn-sm btn-secondary" onclick="document.getElementById('deposit-amount-input').value = 500000">۵۰۰ هزار</button>
+                                </div>
+                                <div class="form-group">
+                                    <label>مبلغ واریزی (تومان):</label>
+                                    <input type="number" id="deposit-amount-input" class="form-control" value="50000" min="10000" step="10000">
+                                </div>
+                                <div class="form-group">
+                                    <label>تصویر فیش بانکی (JPG / PNG):</label>
+                                    <input type="file" id="deposit-receipt-file" class="form-control" accept="image/*">
+                                </div>
+                                <button class="btn btn-primary" style="width: 100%; padding: 12px;" onclick="submitDepositReceipt()">
+                                    📤 ارسال فیش جهت بررسی
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- تب پیگیری فیش‌ها -->
+                    <div id="wallet-requests-tab" style="display: none;">
+                        <div class="glass-card">
+                            <h3 style="margin-bottom: 14px;">📋 سوابق درخواست‌های افزایش موجودی شما</h3>
+                            <div id="wallet-my-requests-list"></div>
+                        </div>
+                    </div>
+
+                    <!-- تب تاریخچه تراکنش‌ها -->
+                    <div id="wallet-history-tab" style="display: none;">
+                        <div class="glass-card">
+                            <h3 style="margin-bottom: 14px;">📊 ریز تراکنش‌های مصرفی هوش مصنوعی</h3>
+                            <div style="overflow-x: auto;">
+                                <table style="width: 100%; border-collapse: collapse; text-align: right; font-size: 0.88rem;">
+                                    <thead>
+                                        <tr style="border-bottom: 1px solid var(--card-border); color: var(--text-muted);">
+                                            <th style="padding: 10px;">شناسه</th>
+                                            <th>مدل / سرویس</th>
+                                            <th>نوع عملیات</th>
+                                            <th>هزینه (تومان)</th>
+                                            <th>زمان</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="wallet-transactions-tbody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- ========================================== -->
+                <!-- پنل 7: کنترل‌پنل مدیریت ارشد (ADMIN) -->
+                <!-- ========================================== -->
+                <section id="panel-admin" style="display: none;">
+                    <div class="grid-4" style="margin-bottom: 20px;">
+                        <div class="glass-card" style="padding: 16px; text-align: center;">
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">👥 کل کاربران</span>
+                            <h2 style="margin-top: 4px; font-size: 1.6rem;" id="admin-stat-users">۰</h2>
+                        </div>
+                        <div class="glass-card" style="padding: 16px; text-align: center;">
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">💰 مجموع درآمد مصرف</span>
+                            <h2 style="margin-top: 4px; font-size: 1.6rem; color: #34d399;" id="admin-stat-revenue">۰ ت</h2>
+                        </div>
+                        <div class="glass-card" style="padding: 16px; text-align: center;">
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">⏳ فیش‌های در انتظار</span>
+                            <h2 style="margin-top: 4px; font-size: 1.6rem; color: #fbbf24;" id="admin-stat-pending">۰</h2>
+                        </div>
+                        <div class="glass-card" style="padding: 16px; text-align: center;">
+                            <span style="font-size: 0.8rem; color: var(--text-muted);">⚡ کل درخواست‌های AI</span>
+                            <h2 style="margin-top: 4px; font-size: 1.6rem; color: #60a5fa;" id="admin-stat-requests">۰</h2>
+                        </div>
+                    </div>
+
+                    <div class="tabs-nav">
+                        <button class="tab-btn active" id="adm-tab-deposits-btn" onclick="switchAdminTab('deposits')">💳 تایید فیش‌ها</button>
+                        <button class="tab-btn" id="adm-tab-banks-btn" onclick="switchAdminTab('banks')">🏦 حساب‌های بانکی</button>
+                        <button class="tab-btn" id="adm-tab-users-btn" onclick="switchAdminTab('users')">👥 مدیریت کاربران</button>
+                        <button class="tab-btn" id="adm-tab-settings-btn" onclick="switchAdminTab('settings')">🔌 تنظیمات API و سیستم</button>
+                        <button class="tab-btn" id="adm-tab-logs-btn" onclick="switchAdminTab('logs')">📊 گزارش لاگ‌ها</button>
+                    </div>
+
+                    <!-- بخش تایید فیش‌ها -->
+                    <div id="admin-deposits-tab">
+                        <div class="glass-card">
+                            <h3 style="margin-bottom: 14px;">درخواست‌های شارژ در انتظار بررسی</h3>
+                            <div id="admin-pending-deposits-list"></div>
+                        </div>
+                    </div>
+
+                    <!-- بخش مدیریت بانک‌ها -->
+                    <div id="admin-banks-tab" style="display: none;">
+                        <div class="grid-2">
+                            <div class="glass-card">
+                                <h3>➕ افزودن شماره حساب جدید</h3>
+                                <div class="form-group">
+                                    <label>نام بانک:</label>
+                                    <input type="text" id="new-bank-name" class="form-control" placeholder="بانک سامان">
+                                </div>
+                                <div class="form-group">
+                                    <label>نام صاحب حساب:</label>
+                                    <input type="text" id="new-bank-owner" class="form-control" placeholder="علی محمدی">
+                                </div>
+                                <div class="form-group">
+                                    <label>شماره ۱۶ رقمی کارت:</label>
+                                    <input type="text" id="new-bank-card" class="form-control" placeholder="۶۲۱۹...">
+                                </div>
+                                <div class="form-group">
+                                    <label>شماره شبا (اختیاری):</label>
+                                    <input type="text" id="new-bank-sheba" class="form-control" placeholder="IR...">
+                                </div>
+                                <button class="btn btn-primary" onclick="adminAddBank()">ثبت شماره کارت</button>
+                            </div>
+
+                            <div class="glass-card">
+                                <h3>📋 لیست حساب‌های فعال</h3>
+                                <div id="admin-banks-list"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- بخش مدیریت کاربران -->
+                    <div id="admin-users-tab" style="display: none;">
+                        <div class="glass-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                                <h3>فهرست کاربران سامانه</h3>
+                                <input type="text" id="admin-user-search" class="form-control" style="max-width: 250px;" placeholder="🔍 جستجوی کاربر..." oninput="adminSearchUsers(this.value)">
+                            </div>
+                            <div style="overflow-x: auto;">
+                                <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                                    <thead>
+                                        <tr style="border-bottom: 1px solid var(--card-border); color: var(--text-muted); text-align: right;">
+                                            <th style="padding: 10px;">نام کاربری</th>
+                                            <th>موجودی (تومان)</th>
+                                            <th>نقش</th>
+                                            <th>تاریخ ثبت‌نام</th>
+                                            <th>عملیات</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="admin-users-tbody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- بخش تنظیمات API و سیستم -->
+                    <div id="admin-settings-tab" style="display: none;">
+                        <div class="grid-2">
+                            <div class="glass-card">
+                                <h3 style="margin-bottom: 10px; color: #a5b4fc;">🔌 تنظیمات ارائه‌دهنده فعال هوش مصنوعی</h3>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+                                    شما می‌توانید ارائه‌دهنده را تغییر دهید. سامانه کاتالوگ مدل‌ها، املا و اندپوینت‌ها را به صورت خودکار منطبق می‌کند.
+                                </p>
+                                <div class="form-group">
+                                    <label>ارائه‌دهنده فعال (Active Provider):</label>
+                                    <select id="admin-provider-select" class="form-control" onchange="onAdminProviderChanged()">
+                                        <option value="openrouter">OpenRouter (تمامی مدل‌های دنیا - بیش از ۴۵۰ مدل)</option>
+                                        <option value="gapgpt">GapGPT (سرویس چندرسانه‌ای داخلی)</option>
+                                        <option value="openai">OpenAI Official (رسمی)</option>
+                                        <option value="deepseek">DeepSeek Official (ارزان و توانا)</option>
+                                        <option value="groq">Groq Cloud (فوق سریع LPU)</option>
+                                        <option value="custom">سفارشی / محلی (Custom Base URL / Ollama)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>آدرس سرور API (Base URL):</label>
+                                    <input type="text" id="admin-base-url-input" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label>کلید دسترسی API (API Key):</label>
+                                    <input type="password" id="admin-api-key-input" class="form-control" placeholder="sk-...">
+                                </div>
+
+                                <div class="grid-2">
+                                    <div class="form-group">
+                                        <label>نرخ دلار به تومان:</label>
+                                        <input type="number" id="admin-usd-toman-input" class="form-control" value="85000" step="1000">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>شارژ هدیه ثبت‌نام (تومان):</label>
+                                        <input type="number" id="admin-welcome-bonus-input" class="form-control" value="20000" step="5000">
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-primary" style="width: 100%; padding: 12px;" onclick="adminSaveSettings()">
+                                    💾 ذخیره تنظیمات و اعمال سراسری
+                                </button>
+                            </div>
+
+                            <div class="glass-card">
+                                <h3 style="margin-bottom: 10px; color: #a5b4fc;">⚡ تست زنده اتصال به API</h3>
+                                <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
+                                    پیش از ذخیره می‌توانید از درستی کلید و زمان پینگ اطمینان حاصل کنید:
+                                </p>
+                                <button class="btn btn-secondary" style="width: 100%; padding: 12px; margin-bottom: 14px;" onclick="adminPingAPI()">
+                                    🚀 ارسال درخواست تست و بررسی پینگ (Ping)
+                                </button>
+                                <div id="admin-test-result-box" style="display: none; padding: 14px; border-radius: 12px; font-size: 0.88rem;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- بخش لاگ‌ها -->
+                    <div id="admin-logs-tab" style="display: none;">
+                        <div class="glass-card">
+                            <h3 style="margin-bottom: 14px;">📊 لاگ مصارف و تراکنش‌های سامانه</h3>
+                            <div style="overflow-x: auto;">
+                                <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+                                    <thead>
+                                        <tr style="border-bottom: 1px solid var(--card-border); color: var(--text-muted); text-align: right;">
+                                            <th style="padding: 8px;">شناسه</th>
+                                            <th>کاربر</th>
+                                            <th>مدل</th>
+                                            <th>نوع</th>
+                                            <th>هزینه (تومان)</th>
+                                            <th>زمان</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="admin-logs-tbody"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- مودال عملیات روی کاربر ادمین -->
+    <div id="user-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-body">
+            <h3 id="modal-user-title" style="margin-bottom: 14px;">مدیریت حساب کاربر</h3>
+            <div class="form-group">
+                <label>تغییر موجودی (مقادیر منفی برای کسر):</label>
+                <div style="display: flex; gap: 8px;">
+                    <input type="number" id="modal-balance-change" class="form-control" placeholder="مثال: 50000">
+                    <button class="btn btn-primary" onclick="adminSubmitBalanceChange()">اعمال</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>تغییر رمز عبور:</label>
+                <div style="display: flex; gap: 8px;">
+                    <input type="password" id="modal-new-password" class="form-control" placeholder="رمز جدید">
+                    <button class="btn btn-primary" onclick="adminSubmitPasswordChange()">تغییر رمز</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>سطح دسترسی:</label>
+                <div style="display: flex; gap: 8px;">
+                    <select id="modal-role-select" class="form-control">
+                        <option value="user">کاربر عادی</option>
+                        <option value="admin">مدیر ارشد</option>
+                    </select>
+                    <button class="btn btn-primary" onclick="adminSubmitRoleChange()">تغییر نقش</button>
+                </div>
+            </div>
+            <div style="margin-top: 20px; display: flex; justify-content: space-between;">
+                <button class="btn btn-danger" onclick="adminSubmitDeleteUser()">🗑️ حذف کاربر</button>
+                <button class="btn btn-secondary" onclick="closeUserModal()">بستن</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- مودال ساخت پایگاه دانش جدید -->
+    <div id="kb-create-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-body" style="max-width: 500px;">
+            <h3 style="margin-bottom: 12px; font-size: 1.2rem; color: var(--neon-cyan);">📚 ساخت پایگاه دانش جدید (RAG)</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 18px;">
+                یک نام و نماد برای این پایگاه انتخاب کنید تا اسناد و کدهای مرتبط با آن را بارگذاری فرمایید.
+            </p>
+            <div class="form-group">
+                <label>عنوان پایگاه دانش:</label>
+                <input type="text" id="kb-new-col-title" class="form-control" placeholder="مثال: آیین‌نامه‌های اداری، قراردادها، یا اسناد مالی">
+            </div>
+            <div class="form-group">
+                <label>آیکون:</label>
+                <select id="kb-new-col-icon" class="form-control">
+                    <option value="📚">📚 کتابخانه و اسناد عمومی</option>
+                    <option value="💼">💼 بیزینس و کسب‌وکار</option>
+                    <option value="💻">💻 کدنویسی و معماری نرم‌افزار</option>
+                    <option value="⚖️">⚖️ حقوقی و قراردادها</option>
+                    <option value="🔬">🔬 پژوهشی، علمی و پایان‌نامه</option>
+                    <option value="🏥">🏥 پزشکی و داروسازی</option>
+                    <option value="🎓">🎓 دوره‌های آموزشی</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>توضیحات مختصر:</label>
+                <textarea id="kb-new-col-desc" class="form-control" rows="2" placeholder="توضیح هدف این پایگاه دانش..."></textarea>
+            </div>
+            <div style="margin-top: 22px; display: flex; justify-content: space-between; gap: 12px;">
+                <button class="btn btn-primary" style="flex-grow: 1;" onclick="submitCreateCollection()">✨ ایجاد پایگاه دانش</button>
+                <button class="btn btn-secondary" onclick="closeCreateCollectionModal()">انصراف</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- مودال تاریخچه کامل گفتگوها -->
+    <div id="chat-history-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-body" style="max-width: 620px; max-height: 85vh; display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 1px solid var(--card-border); padding-bottom: 12px;">
+                <h3 style="margin: 0; font-size: 1.25rem; display: flex; align-items: center; gap: 8px; color: var(--text-primary);">
+                    <span>📜</span> <span>آرشیو و تاریخچه گفتگوهای شما</span>
+                </h3>
+                <button class="btn btn-sm btn-primary" onclick="startNewChat(); closeChatHistoryModal();">
+                    ➕ چت جدید
+                </button>
+            </div>
+
+            <div style="margin-bottom: 14px;">
+                <input type="text" id="history-modal-search" class="form-control" placeholder="🔍 جستجو در عنوان گفتگوها..." oninput="filterHistoryModalList(this.value)">
+            </div>
+
+            <div id="history-modal-list-container" style="overflow-y: auto; flex-grow: 1; max-height: 420px; padding-left: 4px;">
+                <!-- توسط جاوااسکریپت پر می‌شود -->
+            </div>
+
+            <div style="margin-top: 18px; padding-top: 12px; border-top: 1px solid var(--card-border); display: flex; justify-content: flex-end;">
+                <button class="btn btn-secondary" onclick="closeChatHistoryModal()">بستن پنجره</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
